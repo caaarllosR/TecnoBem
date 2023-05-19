@@ -60,7 +60,7 @@ public class ClienteHelper  implements IHelper {
         String cep = view.getTextCEP().getText();
         String observacao = view.getTextObservacao().getText();
         String vencimento = view.getTextVencimento().getSelectedItem().toString();
-        String limite = view.getTextLimite().getText();
+        String limite = view.getTextLimite().getText() == null || view.getTextLimite().getText().equals("") ? "0" : view.getTextLimite().getText();
         
         Cliente cliente = new Cliente("0", nome, telefone1, telefone2, email, cpfCnpj, endereco, cep, observacao, vencimento, limite);
         

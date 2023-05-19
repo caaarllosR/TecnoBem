@@ -69,7 +69,6 @@ public class Banco {
         OpenOption options = StandardOpenOption.APPEND;
         
 	Path pathClientes = Paths.get(fileClientes.getAbsolutePath());
-        int idClientes = 1;
         
         try(BufferedReader br = Files.newBufferedReader(pathClientes)){
             
@@ -90,53 +89,35 @@ public class Banco {
 
             while(br.ready()){
 
-                //String[] dadosCliente = br.readLine().split(";");
-
-                StringTokenizer stDadosCliente = new StringTokenizer(br.readLine(),";");
-
-                if (stDadosCliente.hasMoreElements()) {
-                    id = stDadosCliente.nextToken();
+                String[] dadosCliente = br.readLine().split(";");
+                
+                for(String item : dadosCliente) {
+                    System.out.println(dadosCliente[0]);
                 }
+                
+                //StringTokenizer stDadosCliente = new StringTokenizer(br.readLine(),";");               
+                
+                    id = dadosCliente[0];
                                 
-                if (stDadosCliente.hasMoreElements()) {
-                    cliente = stDadosCliente.nextToken();
-                }
+                    cliente = dadosCliente[1];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    cpfCnpj = stDadosCliente.nextToken();
-                }
+                    cpfCnpj = dadosCliente[2];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    endereco = stDadosCliente.nextToken();
-                }
+                    endereco = dadosCliente[3];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    cep = stDadosCliente.nextToken();
-                }
+                    cep = dadosCliente[4];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    telefone1 = stDadosCliente.nextToken();
-                }
+                    telefone1 = dadosCliente[5];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    telefone2 = stDadosCliente.nextToken();
-                }
+                    telefone2 = dadosCliente[6];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    email = stDadosCliente.nextToken();
-                }
+                    email = dadosCliente[7];
 
-                if (stDadosCliente.hasMoreElements()) {
-                    observacao = stDadosCliente.nextToken();
-                }
+                    observacao = dadosCliente[8];
                 
-                if (stDadosCliente.hasMoreElements()) {
-                    vencimento = stDadosCliente.nextToken();
-                }
+                    vencimento = dadosCliente[9];
                 
-                if (stDadosCliente.hasMoreElements()) {
-                    limite = stDadosCliente.nextToken();
-                }
+                    limite = dadosCliente[10];
 
                 clientes.add(new Cliente(id, cliente, cpfCnpj, endereco, cep, telefone1, telefone2, email, observacao, vencimento, limite));
             }
