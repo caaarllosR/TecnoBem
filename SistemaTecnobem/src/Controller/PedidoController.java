@@ -50,10 +50,10 @@ public class PedidoController {
         
         ClienteDAO clienteDAO = new ClienteDAO();
         ArrayList<Cliente> clientes = clienteDAO.selectAll();
-        helper.preencherClientes(clientes);
+        helper.preencheComboClientes(clientes);
     }
     
-    
+
     public void agendar() {
         
         Pedido pedido = helper.obterModelo();

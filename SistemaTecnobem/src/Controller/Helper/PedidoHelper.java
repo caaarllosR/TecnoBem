@@ -46,7 +46,7 @@ public class PedidoHelper implements IHelper {
         
     }
 
-    public void preencherClientes(ArrayList<Cliente> clientes) {
+    public void preencheComboClientes(ArrayList<Cliente> clientes) {
 
         DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxCliente().getModel();
         

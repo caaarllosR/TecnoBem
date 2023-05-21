@@ -36,7 +36,7 @@ public class PedidoDAO {
     public boolean update(Pedido agendamento){
         
         for (int i = 0; i < Banco.pedidos.size(); i++) {
-            if(idSaoIguais(Banco.pedidos.get(i),agendamento)){
+            if(comparaId(Banco.pedidos.get(i),agendamento)){
                 Banco.pedidos.set(i, agendamento);
                 return true;
             }
@@ -52,7 +52,7 @@ public class PedidoDAO {
      */
     public boolean delete(Pedido agendamento){
         for (Pedido agendamentoLista : Banco.pedidos) {
-            if(idSaoIguais(agendamentoLista,agendamento)){
+            if(comparaId(agendamentoLista,agendamento)){
                 Banco.pedidos.remove(agendamentoLista);
                 return true;
             }
@@ -74,7 +74,7 @@ public class PedidoDAO {
      * @param agendamentoAComparar
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
-    private boolean idSaoIguais(Pedido agendamento, Pedido agendamentoAComparar) {
+    private boolean comparaId(Pedido agendamento, Pedido agendamentoAComparar) {
         return agendamento.getId() ==  agendamentoAComparar.getId();
     }
     

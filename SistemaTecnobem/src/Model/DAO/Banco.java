@@ -90,11 +90,7 @@ public class Banco {
             while(br.ready()){
 
                 String[] dadosCliente = br.readLine().split(";");
-                
-                for(String item : dadosCliente) {
-                    System.out.println(dadosCliente[0]);
-                }
-                
+
                 //StringTokenizer stDadosCliente = new StringTokenizer(br.readLine(),";");               
                 
                     id = dadosCliente[0];
@@ -173,44 +169,29 @@ public class Banco {
                     
             while(br.ready()){
 
-                StringTokenizer stDadosPedido = new StringTokenizer(br.readLine(),";");
+                String[] dadosCliente = br.readLine().split(";");
 
-                if (stDadosPedido.hasMoreElements()) {
-                    TSO = stDadosPedido.nextToken();
-                }
+                //StringTokenizer stDadosPedido = new StringTokenizer(br.readLine(),";");
 
-                if (stDadosPedido.hasMoreElements()) {
-                    cliente = stDadosPedido.nextToken();
-                }
+                    TSO = dadosCliente[0];
 
-                if (stDadosPedido.hasMoreElements()) {
-                    servico = stDadosPedido.nextToken();
-                }
+                    cliente = dadosCliente[1];
 
-                if (stDadosPedido.hasMoreElements()) {
-                    OD = stDadosPedido.nextToken();
-                }
+                    servico = dadosCliente[2];
+
+                    OD = dadosCliente[3];
                                 
-                if (stDadosPedido.hasMoreElements()) {
-                    OE = stDadosPedido.nextToken();
-                }
+                    OE = dadosCliente[4];
                                                 
-                if (stDadosPedido.hasMoreElements()) {
-                    valor = stDadosPedido.nextToken();
-                }
+                    valor = dadosCliente[5];
 
-                if (stDadosPedido.hasMoreElements()) {
-                    dataEntrega = stDadosPedido.nextToken();
-                }
+                    dataEntrega = dadosCliente[6];
 
-                if (stDadosPedido.hasMoreElements()) {
-                    observacao = stDadosPedido.nextToken();
-                }
+                    observacao = dadosCliente[7];
 
                 pedidos.add(new Pedido(idPedidos, TSO, cliente, servico, OD, OE, valor, dataEntrega, observacao));
                         
             }
-            
             br.close();
 
 	}catch(IOException e){
