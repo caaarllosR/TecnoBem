@@ -51,14 +51,14 @@ public class PedidoHelper implements IHelper {
         DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxCliente().getModel();
         
         for (Cliente cliente : clientes) {
-            comboBoxModel.addElement(cliente);
+            comboBoxModel.addElement(cliente.getNome());
         }
     }
 
 
-    public Cliente obterCliente() {
+    public String obterCliente() {
 
-        return (Cliente) view.getJComboBoxCliente().getSelectedItem();
+        return (String) view.getJComboBoxCliente().getSelectedItem();
     }
         
     public void setarValor(float valor) {
@@ -69,7 +69,7 @@ public class PedidoHelper implements IHelper {
     public Pedido obterModelo() {
 
         String TSO = view.getTextTSO().getText();
-        String cliente = obterCliente().getNome();
+        String cliente = obterCliente();
         String servico = view.getTextServico().getText();
         String OD = view.getTextOD().getText();
         String OE = view.getTextOE().getText();

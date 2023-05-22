@@ -46,7 +46,7 @@ public class PedidoController {
         helper.preencherTabela(agendamentos);
     }
     
-    public void atualizaTabelaClientes() {
+    public void atualizaJComboClientes() {
         
         ClienteDAO clienteDAO = new ClienteDAO();
         ArrayList<Cliente> clientes = clienteDAO.selectAll();
@@ -68,7 +68,7 @@ public class PedidoController {
 	Path path = Paths.get(dp.getAbsolutePath());
         
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8, options)) {
-            w.write(pedido.getTSO()+";"+pedido.getCliente()
+            w.write(pedido.getId()+";"+pedido.getTSO()+";"+pedido.getCliente()
                     +";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataFormatada()+";"+pedido.getObservacao()+"\n");
 	}catch (IOException e){
             e.printStackTrace();

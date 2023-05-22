@@ -1,9 +1,0 @@
-Id;Cliente;CpfCnpj;Endereço;CEP;Telefone1;Telefone2;E-mail;Observação,Vencimento,Limite
-1;1;1;;1;;1;1;;Quinzenal;1
-2;5;5;5;5;5;5;5;;Quinzenal;5
-3;3;3;;3;;3;;;Quinzenal;
-4;9;9;9;9;9;9;9;;Quinzenal;9
-5;5;5;5;5;5;5;5;;Quinzenal;5
-6;3;3;3;3;3;3;3;;Quinzenal;3
-7;0;0;;;0;0;00;;Quinzenal;
-8;6;6;6;6;6;6;6;;Quinzenal;6

@@ -93,26 +93,16 @@ public class Banco {
 
                 //StringTokenizer stDadosCliente = new StringTokenizer(br.readLine(),";");               
                 
-                    id = dadosCliente[0];
-                                
+                    id = dadosCliente[0];                               
                     cliente = dadosCliente[1];
-
                     cpfCnpj = dadosCliente[2];
-
                     endereco = dadosCliente[3];
-
                     cep = dadosCliente[4];
-
                     telefone1 = dadosCliente[5];
-
                     telefone2 = dadosCliente[6];
-
                     email = dadosCliente[7];
-
-                    observacao = dadosCliente[8];
-                
-                    vencimento = dadosCliente[9];
-                
+                    observacao = dadosCliente[8];              
+                    vencimento = dadosCliente[9];               
                     limite = dadosCliente[10];
 
                 clientes.add(new Cliente(id, cliente, cpfCnpj, endereco, cep, telefone1, telefone2, email, observacao, vencimento, limite));
@@ -131,6 +121,7 @@ public class Banco {
         //Instancia os Objetos
         pedidos = new ArrayList<Pedido>();
         
+        int id = 0;
         String TSO = "";
         String cliente = "";
         String servico = "";
@@ -148,13 +139,12 @@ public class Banco {
         OpenOption options = StandardOpenOption.APPEND;
            
 	Path pathPedidos = Paths.get(filePedidos.getAbsolutePath());
-        int idPedidos = 1;
                     
         try(BufferedReader br = Files.newBufferedReader(pathPedidos)){
             
             if(br.readLine() == null) {
                 try (BufferedWriter w = Files.newBufferedWriter(pathPedidos, StandardCharsets.UTF_8, options)) {
-                    w.write("TSO;Cliente;Serviço;OD;OE;Valor;DataEntrega;Observação\n");
+                    w.write("Id;TSO;Cliente;Serviço;OD;OE;Valor;DataEntrega;Observação\n");
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -169,27 +159,21 @@ public class Banco {
                     
             while(br.ready()){
 
-                String[] dadosCliente = br.readLine().split(";");
+                String[] dadosPedido = br.readLine().split(";");
 
                 //StringTokenizer stDadosPedido = new StringTokenizer(br.readLine(),";");
 
-                    TSO = dadosCliente[0];
+                    id = Integer.parseInt(dadosPedido[0]);
+                    TSO = dadosPedido[1];
+                    cliente = dadosPedido[2];
+                    servico = dadosPedido[3];
+                    OD = dadosPedido[4];                                
+                    OE = dadosPedido[5];                                                
+                    valor = dadosPedido[6];
+                    dataEntrega = dadosPedido[7];
+                    observacao = dadosPedido[8];
 
-                    cliente = dadosCliente[1];
-
-                    servico = dadosCliente[2];
-
-                    OD = dadosCliente[3];
-                                
-                    OE = dadosCliente[4];
-                                                
-                    valor = dadosCliente[5];
-
-                    dataEntrega = dadosCliente[6];
-
-                    observacao = dadosCliente[7];
-
-                pedidos.add(new Pedido(idPedidos, TSO, cliente, servico, OD, OE, valor, dataEntrega, observacao));
+                pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, observacao));
                         
             }
             br.close();

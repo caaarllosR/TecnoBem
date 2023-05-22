@@ -400,8 +400,8 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     private void iniciar() {
 
-        //this.pedidoController.atualizaTabelaPedidos();
-        //this.pedidoController.atualizaTabelaClientes();
+        this.pedidoController.atualizaTabelaPedidos();
+        this.pedidoController.atualizaJComboClientes();
     }
 
     public JTable getTableAgendamentos() {
@@ -416,10 +416,9 @@ public class CadastroPedido extends javax.swing.JFrame {
         return JComboBoxCliente;
     }
 
-    public void setjComboBoxCliente(JComboBox<String> jComboBoxCliente) {
+    public void setJComboBoxCliente(JComboBox<String> jComboBoxCliente) {
         this.JComboBoxCliente = jComboBoxCliente;
     }
-
 
     public JTextField getTextFormatedData() {
         return TextFormatedData;
