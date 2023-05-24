@@ -74,7 +74,7 @@ public class Banco {
             
             if(br.readLine() == null) {
                 try (BufferedWriter w = Files.newBufferedWriter(pathClientes, StandardCharsets.UTF_8, options)) {
-                    w.write("Id;Cliente;CpfCnpj;Endereço;CEP;Telefone1;Telefone2;E-mail;Observação,Vencimento,Limite\n");
+                    w.write("Id;Cliente;CpfCnpj;Endereço;CEP;Telefone1;Telefone2;E-mail;Observação;Vencimento;Limite\n");
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -159,23 +159,22 @@ public class Banco {
                     
             while(br.ready()){
 
-                String[] dadosPedido = br.readLine().split(";");
+                String[] dadosPedido = br.readLine().split(";");             
 
-                //StringTokenizer stDadosPedido = new StringTokenizer(br.readLine(),";");
-
-                    id = Integer.parseInt(dadosPedido[0]);
-                    TSO = dadosPedido[1];
-                    cliente = dadosPedido[2];
-                    servico = dadosPedido[3];
-                    OD = dadosPedido[4];                                
-                    OE = dadosPedido[5];                                                
-                    valor = dadosPedido[6];
-                    dataEntrega = dadosPedido[7];
-                    observacao = dadosPedido[8];
-
+                id = Integer.parseInt(dadosPedido[0]);
+                TSO = dadosPedido[1];
+                cliente = dadosPedido[2];
+                servico = dadosPedido[3];
+                OD = dadosPedido[4];                                
+                OE = dadosPedido[5];                                                
+                valor = dadosPedido[6];
+                dataEntrega = dadosPedido[7];
+                observacao = dadosPedido[8];
+                
                 pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, observacao));
                         
-            }
+            } 
+                
             br.close();
 
 	}catch(IOException e){

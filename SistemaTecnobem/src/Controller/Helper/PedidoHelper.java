@@ -40,6 +40,8 @@ public class PedidoHelper implements IHelper {
                 pedido.getOE(),
                 pedido.getValor(),
                 pedido.getDataFormatada(),
+                "",
+                "",
                 pedido.getObservacao()
             });
         }
