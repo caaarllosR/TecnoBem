@@ -129,6 +129,8 @@ public class Banco {
         String OE = "";
         String valor = "";
         String dataEntrega = "";
+        String previsaoDataSaida = "";
+        String perda = "";
         String observacao = "";
         
         
@@ -144,7 +146,7 @@ public class Banco {
             
             if(br.readLine() == null) {
                 try (BufferedWriter w = Files.newBufferedWriter(pathPedidos, StandardCharsets.UTF_8, options)) {
-                    w.write("Id;TSO;Cliente;Serviço;OD;OE;Valor;DataEntrega;Observação\n");
+                    w.write("Id;TSO;Cliente;Serviço;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo\n");
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -169,9 +171,11 @@ public class Banco {
                 OE = dadosPedido[5];                                                
                 valor = dadosPedido[6];
                 dataEntrega = dadosPedido[7];
-                observacao = dadosPedido[8];
+                previsaoDataSaida = dadosPedido[8];
+                perda = dadosPedido[9]  ;    
+                observacao = dadosPedido.length == 11 ? dadosPedido[10] : "";
                 
-                pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, observacao));
+                pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao));
                         
             } 
                 

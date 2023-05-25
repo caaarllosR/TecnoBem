@@ -22,11 +22,13 @@ public class Pedido {
     private String OD;
     private String OE;
     private String valor;
-    private String data;
+    private String dataEntrada;
+    private String previsaoDataSaida;
+    private String perda;
     private String observacao;
     private String TSO;
 
-    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String data) {
+    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda) {
         this.id = id;
         this.cliente = cliente;
         this.TSO = TSO;
@@ -39,13 +41,15 @@ public class Pedido {
         } catch (ParseException ex) {
             Logger.getLogger(Pedido.class.getName()).log(Level.SEVERE, "deu ruim", ex);
         }*/
-        this.data = data;
+        this.dataEntrada = dataEntrada;
+        this.previsaoDataSaida = previsaoDataSaida;
+        this.perda = perda;
     }
     
     
-    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String data, String observacao) {
+    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao) {
         
-        this(id, TSO, cliente, servico, OD, OE, valor, data);
+        this(id, TSO, cliente, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda);
         this.observacao = observacao;
     }
         
@@ -90,18 +94,33 @@ public class Pedido {
         this.valor = valor;
     }
 
-    public String getDataFormatada() {
+    public String getDataEntrega() {
         //return new SimpleDateFormat("dd/MM/yyyy").format(data);
-        return data;
+        return dataEntrada;
     }
     
-
     public String getObservacao() {
         return observacao;
     }
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+    
+    public String getPrevisaoDataSaida() {
+        return previsaoDataSaida;
+    }
+
+    public void setPrevisaoDataSaida(String previsaoDataSaida) {
+        this.previsaoDataSaida = previsaoDataSaida;
+    }
+    
+    public String getPerda() {
+        return perda;
+    }
+
+    public void setPerda(String perda) {
+        this.perda = perda;
     }
 
     public String getTSO() {

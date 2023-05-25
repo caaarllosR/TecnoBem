@@ -55,11 +55,11 @@ public class CadastroPedido extends javax.swing.JFrame {
         LabelData3 = new javax.swing.JLabel();
         LabelObservacao = new javax.swing.JLabel();
         JComboBoxCliente = new javax.swing.JComboBox<>();
-        TextFormatedData = new javax.swing.JTextField();
-        TextFormatedData1 = new javax.swing.JTextField();
-        TextFormatedData3 = new javax.swing.JTextField();
-        TextFormatedData4 = new javax.swing.JTextField();
-        JScrollPane2 = new javax.swing.JScrollPane();
+        TextDataEntrada = new javax.swing.JTextField();
+        TextPrevisaoDataSaida = new javax.swing.JTextField();
+        TextPerda = new javax.swing.JTextField();
+        TextAnexo = new javax.swing.JTextField();
+        JScrollPaneObservacao = new javax.swing.JScrollPane();
         TextObservacao = new javax.swing.JTextArea();
         ButtonAgendar = new javax.swing.JButton();
         ButtonGerarNota = new javax.swing.JButton();
@@ -135,43 +135,43 @@ public class CadastroPedido extends javax.swing.JFrame {
         });
         getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 280, 30));
 
-        TextFormatedData.setToolTipText("");
-        TextFormatedData.addActionListener(new java.awt.event.ActionListener() {
+        TextDataEntrada.setToolTipText("");
+        TextDataEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFormatedDataActionPerformed(evt);
+                TextDataEntradaActionPerformed(evt);
             }
         });
-        getContentPane().add(TextFormatedData, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 280, 30));
+        getContentPane().add(TextDataEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 280, 30));
 
-        TextFormatedData1.setToolTipText("");
-        TextFormatedData1.addActionListener(new java.awt.event.ActionListener() {
+        TextPrevisaoDataSaida.setToolTipText("");
+        TextPrevisaoDataSaida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFormatedData1ActionPerformed(evt);
+                TextPrevisaoDataSaidaActionPerformed(evt);
             }
         });
-        getContentPane().add(TextFormatedData1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 280, 30));
+        getContentPane().add(TextPrevisaoDataSaida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 280, 30));
 
-        TextFormatedData3.setToolTipText("");
-        TextFormatedData3.addActionListener(new java.awt.event.ActionListener() {
+        TextPerda.setToolTipText("");
+        TextPerda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFormatedData3ActionPerformed(evt);
+                TextPerdaActionPerformed(evt);
             }
         });
-        getContentPane().add(TextFormatedData3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 280, 30));
+        getContentPane().add(TextPerda, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 280, 30));
 
-        TextFormatedData4.setToolTipText("");
-        TextFormatedData4.addActionListener(new java.awt.event.ActionListener() {
+        TextAnexo.setToolTipText("");
+        TextAnexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFormatedData4ActionPerformed(evt);
+                TextAnexoActionPerformed(evt);
             }
         });
-        getContentPane().add(TextFormatedData4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 280, 30));
+        getContentPane().add(TextAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 280, 30));
 
         TextObservacao.setColumns(20);
         TextObservacao.setRows(5);
-        JScrollPane2.setViewportView(TextObservacao);
+        JScrollPaneObservacao.setViewportView(TextObservacao);
 
-        getContentPane().add(JScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 610, 120));
+        getContentPane().add(JScrollPaneObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 610, 120));
 
         ButtonAgendar.setBackground(new java.awt.Color(60, 233, 106));
         ButtonAgendar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -280,9 +280,9 @@ public class CadastroPedido extends javax.swing.JFrame {
         this.pedidoController.agendar();
     }//GEN-LAST:event_ButtonAgendarActionPerformed
 
-    private void TextFormatedDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFormatedDataActionPerformed
+    private void TextDataEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDataEntradaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFormatedDataActionPerformed
+    }//GEN-LAST:event_TextDataEntradaActionPerformed
 
     private void TextTSOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextTSOActionPerformed
         // TODO add your handling code here:
@@ -304,17 +304,17 @@ public class CadastroPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextOEActionPerformed
 
-    private void TextFormatedData1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFormatedData1ActionPerformed
+    private void TextPrevisaoDataSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextPrevisaoDataSaidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFormatedData1ActionPerformed
+    }//GEN-LAST:event_TextPrevisaoDataSaidaActionPerformed
 
-    private void TextFormatedData3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFormatedData3ActionPerformed
+    private void TextAnexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextAnexoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFormatedData3ActionPerformed
+    }//GEN-LAST:event_TextAnexoActionPerformed
 
-    private void TextFormatedData4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFormatedData4ActionPerformed
+    private void TextPerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextPerdaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextFormatedData4ActionPerformed
+    }//GEN-LAST:event_TextPerdaActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
         // TODO add your handling code here:
@@ -370,7 +370,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JButton ButtonAgendar;
     private javax.swing.JButton ButtonGerarNota;
     private javax.swing.JComboBox<String> JComboBoxCliente;
-    private javax.swing.JScrollPane JScrollPane2;
+    private javax.swing.JScrollPane JScrollPaneObservacao;
     private javax.swing.JLabel LabelAgenda;
     private javax.swing.JLabel LabelAgendaFundo;
     private javax.swing.JLabel LabelAgendaPainelFundo;
@@ -385,13 +385,13 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel LabelServico;
     private javax.swing.JLabel LabelValor;
     private javax.swing.JTable TableAgendamentos;
-    private javax.swing.JTextField TextFormatedData;
-    private javax.swing.JTextField TextFormatedData1;
-    private javax.swing.JTextField TextFormatedData3;
-    private javax.swing.JTextField TextFormatedData4;
+    private javax.swing.JTextField TextAnexo;
+    private javax.swing.JTextField TextDataEntrada;
     private javax.swing.JTextField TextOD;
     private javax.swing.JTextField TextOE;
     private javax.swing.JTextArea TextObservacao;
+    private javax.swing.JTextField TextPerda;
+    private javax.swing.JTextField TextPrevisaoDataSaida;
     private javax.swing.JTextField TextServico;
     private javax.swing.JTextField TextTSO;
     private javax.swing.JTextField TextValor;
@@ -418,10 +418,6 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     public void setJComboBoxCliente(JComboBox<String> jComboBoxCliente) {
         this.JComboBoxCliente = jComboBoxCliente;
-    }
-
-    public JTextField getTextFormatedData() {
-        return TextFormatedData;
     }
 
     public JTextArea getTextObservacao() {
@@ -470,6 +466,38 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     public void setTextValor(JTextField TextValor) {
         this.TextValor = TextValor;
+    }
+    
+    public JTextField getTextDataEntrada() {
+        return TextDataEntrada;
+    }
+
+    public void setTextDataEntrada(JTextField TextDataEntrada) {
+        this.TextDataEntrada = TextDataEntrada;
+    }
+    
+    public JTextField getTextPrevisaoDataSaida() {
+        return TextPrevisaoDataSaida;
+    }
+
+    public void setPrevisaoDataSaida(JTextField TextPrevisaoDataSaida) {
+        this.TextPrevisaoDataSaida = TextPrevisaoDataSaida;
+    }
+    
+    public JTextField getTextPerda() {
+        return TextPerda;
+    }
+
+    public void setTextPerda(JTextField TextPerda) {
+        this.TextValor = TextPerda;
+    }
+    
+    public JTextField getTextAnexo() {
+        return TextAnexo;
+    }
+
+    public void setTextAnexo(JTextField TextAnexo) {
+        this.TextValor = TextAnexo;
     }
     
     

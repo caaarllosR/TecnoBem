@@ -69,7 +69,7 @@ public class PedidoController {
         
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8, options)) {
             w.write(pedido.getId()+";"+pedido.getTSO()+";"+pedido.getCliente()
-                    +";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataFormatada()+";"+pedido.getObservacao()+"\n");
+                    +";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao()+"\n");
 	}catch (IOException e){
             e.printStackTrace();
 	}

@@ -39,9 +39,9 @@ public class PedidoHelper implements IHelper {
                 pedido.getOD(),
                 pedido.getOE(),
                 pedido.getValor(),
-                pedido.getDataFormatada(),
-                "",
-                "",
+                pedido.getDataEntrega(),
+                pedido.getPrevisaoDataSaida(),
+                pedido.getPerda(),
                 pedido.getObservacao()
             });
         }
@@ -76,10 +76,12 @@ public class PedidoHelper implements IHelper {
         String OD = view.getTextOD().getText();
         String OE = view.getTextOE().getText();
         String valor = view.getTextValor().getText();
-        String data = view.getTextFormatedData().getText();
+        String dataEntrada = view.getTextDataEntrada().getText();
+        String PrevisaoDataSaida = view.getTextPrevisaoDataSaida().getText();
+        String Perda = view.getTextPerda().getText();
         String observacao = view.getTextObservacao().getText();
         
-        Pedido pedido = new Pedido(0, TSO, cliente, servico, OD, OE, valor, data, observacao);
+        Pedido pedido = new Pedido(0, TSO, cliente, servico, OD, OE, valor, dataEntrada, PrevisaoDataSaida, Perda, observacao);
         
         return pedido;
     }
@@ -87,13 +89,17 @@ public class PedidoHelper implements IHelper {
     @Override
     public void limparTela() {
 
-        view.getTextFormatedData().setText("");
+        view.getTextDataEntrada().setText("");
         view.getTextTSO().setText("");
         view.getTextServico().setText("");
         view.getTextOD().setText("");
         view.getTextOE().setText("");
         view.getTextValor().setText("");
+        view.getTextDataEntrada().setText("");
+        view.getTextPrevisaoDataSaida().setText("");
+        view.getTextPerda().setText("");
         view.getTextObservacao().setText("");
+        view.getTextAnexo().setText("");
     }
     
 }
