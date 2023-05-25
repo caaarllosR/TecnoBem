@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class PedidoDAO {
     
     /**
-     * Insere um agendamento dentro do banco de dados
-     * @param pedido exige que seja passado um objeto do tipo agendamento
+     * Insere um pedido dentro do banco de dados
+     * @param pedido exige que seja passado um objeto do tipo pedido
      */
     public void insert(Pedido pedido){
           
@@ -30,14 +30,14 @@ public class PedidoDAO {
     
     /**
      * Atualiza um Objeto no banco de dados
-     * @param agendamento
+     * @param pedido
      * @return 
      */
-    public boolean update(Pedido agendamento){
+    public boolean update(Pedido pedido){
         
         for (int i = 0; i < Banco.pedidos.size(); i++) {
-            if(comparaId(Banco.pedidos.get(i),agendamento)){
-                Banco.pedidos.set(i, agendamento);
+            if(comparaId(Banco.pedidos.get(i),pedido)){
+                Banco.pedidos.set(i, pedido);
                 return true;
             }
         }
@@ -46,14 +46,14 @@ public class PedidoDAO {
     }
     
     /**
-     * Deleta um objeto do banco de dados pelo id do agendamento passado
-     * @param agendamento
+     * Deleta um objeto do banco de dados pelo id do pedido passado
+     * @param pedido
      * @return 
      */
-    public boolean delete(Pedido agendamento){
-        for (Pedido agendamentoLista : Banco.pedidos) {
-            if(comparaId(agendamentoLista,agendamento)){
-                Banco.pedidos.remove(agendamentoLista);
+    public boolean delete(Pedido pedido){
+        for (Pedido pedidoLista : Banco.pedidos) {
+            if(comparaId(pedidoLista,pedido)){
+                Banco.pedidos.remove(pedido);
                 return true;
             }
         }
@@ -61,7 +61,7 @@ public class PedidoDAO {
     }
     
     /**
-     * Retorna um arraylist com todos os agendamentos do banco de dados
+     * Retorna um arraylist com todos os pedidos do banco de dados
      * @return uma lista com todos os registros do banco
      */
     public ArrayList<Pedido> selectAll(){
@@ -70,20 +70,20 @@ public class PedidoDAO {
     
     /**
      * Compara se dois objetos tem a propriedade id igual
-     * @param agendamento
-     * @param agendamentoAComparar
+     * @param pedido
+     * @param pedidoAComparar
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
-    private boolean comparaId(Pedido agendamento, Pedido agendamentoAComparar) {
-        return agendamento.getId() ==  agendamentoAComparar.getId();
+    private boolean comparaId(Pedido pedido, Pedido pedidoAComparar) {
+        return pedido.getId() ==  pedidoAComparar.getId();
     }
     
     private int proximoId(){
         
         int maiorId = 0;
         
-        for (Pedido agendamento : Banco.pedidos) {           
-           int id = agendamento.getId();
+        for (Pedido pedido : Banco.pedidos) {           
+           int id = pedido.getId();
             
             if(maiorId < id){
                 maiorId = id;

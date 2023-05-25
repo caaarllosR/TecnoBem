@@ -319,7 +319,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPanePedidos">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
@@ -331,23 +331,23 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="TableAgendamentos">
+        <Component class="javax.swing.JTable" name="TablePedidos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="13" rowCount="0">
-                <Column editable="true" title="Id" type="java.lang.Object"/>
-                <Column editable="true" title="Cliente" type="java.lang.Object"/>
-                <Column editable="true" title="TSO" type="java.lang.String"/>
-                <Column editable="true" title="C&#xf3;digo do Produto" type="java.lang.String"/>
-                <Column editable="true" title="OD" type="java.lang.String"/>
-                <Column editable="true" title="OE" type="java.lang.String"/>
-                <Column editable="true" title="Valor" type="java.lang.String"/>
-                <Column editable="true" title="Data de Entrada" type="java.lang.Object"/>
-                <Column editable="true" title="Previs&#xe3;o de Saida" type="java.lang.Object"/>
-                <Column editable="true" title="Perda" type="java.lang.String"/>
-                <Column editable="true" title="Observa&#xe7;&#xe3;o" type="java.lang.String"/>
-                <Column editable="true" title="Anexo" type="java.lang.Object"/>
-                <Column editable="true" title="Pago" type="java.lang.Object"/>
+                <Column editable="false" title="Id" type="java.lang.Object"/>
+                <Column editable="false" title="Cliente" type="java.lang.Object"/>
+                <Column editable="false" title="TSO" type="java.lang.String"/>
+                <Column editable="false" title="C&#xf3;digo do Produto" type="java.lang.String"/>
+                <Column editable="false" title="OD" type="java.lang.String"/>
+                <Column editable="false" title="OE" type="java.lang.String"/>
+                <Column editable="false" title="Valor" type="java.lang.String"/>
+                <Column editable="false" title="Data de Entrada" type="java.lang.Object"/>
+                <Column editable="false" title="Previs&#xe3;o de Saida" type="java.lang.Object"/>
+                <Column editable="false" title="Perda" type="java.lang.String"/>
+                <Column editable="false" title="Observa&#xe7;&#xe3;o" type="java.lang.String"/>
+                <Column editable="false" title="Anexo" type="java.lang.Object"/>
+                <Column editable="false" title="Pago" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -419,10 +419,16 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TablePedidosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -452,12 +458,12 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextServico">
+    <Component class="javax.swing.JTextField" name="TextCodigoProduto">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextServicoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextCodigoProdutoActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

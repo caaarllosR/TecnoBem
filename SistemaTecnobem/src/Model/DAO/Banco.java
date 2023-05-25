@@ -164,15 +164,15 @@ public class Banco {
                 String[] dadosPedido = br.readLine().split(";");             
 
                 id = Integer.parseInt(dadosPedido[0]);
-                TSO = dadosPedido[1];
-                cliente = dadosPedido[2];
-                servico = dadosPedido[3];
-                OD = dadosPedido[4];                                
-                OE = dadosPedido[5];                                                
-                valor = dadosPedido[6];
-                dataEntrega = dadosPedido[7];
-                previsaoDataSaida = dadosPedido[8];
-                perda = dadosPedido[9]  ;    
+                TSO = dadosPedido.length >= 2 ? dadosPedido[1] : "";
+                cliente = dadosPedido.length >= 3 ? dadosPedido[2] : "";
+                servico = dadosPedido.length >= 4 ? dadosPedido[3] : "";
+                OD = dadosPedido.length >= 5 ? dadosPedido[4] : "";                                
+                OE = dadosPedido.length >= 6 ? dadosPedido[5] : "";                                                
+                valor = dadosPedido.length >= 7 ? dadosPedido[6] : "";
+                dataEntrega = dadosPedido.length >= 8 ? dadosPedido[7] : "";
+                previsaoDataSaida = dadosPedido.length >= 9 ? dadosPedido[8] : "";
+                perda = dadosPedido.length >= 10 ? dadosPedido[9] : "";    
                 observacao = dadosPedido.length == 11 ? dadosPedido[10] : "";
                 
                 pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao));

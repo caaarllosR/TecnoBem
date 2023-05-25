@@ -371,7 +371,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void iniciar() {
 
-        this.clienteController.atualizaTabela();
+        this.clienteController.carregaTabela();
     }
 
     public JTextArea getTextObservacao() {

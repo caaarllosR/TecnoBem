@@ -38,15 +38,21 @@ public class PedidoController {
         this.helper = new PedidoHelper(view);
     }
     
-    public void atualizaTabelaPedidos(){
+    public void carregaTabela(){
         
-        PedidoDAO agendamentoDAO = new PedidoDAO();
-        ArrayList<Pedido> agendamentos = agendamentoDAO.selectAll();
+        PedidoDAO pedidosDAO = new PedidoDAO();
+        ArrayList<Pedido> pedidos = pedidosDAO.selectAll();
         
-        helper.preencherTabela(agendamentos);
+        helper.preencherTabela(pedidos);
     }
     
-    public void atualizaJComboClientes() {
+    public void atualizaTabela(Pedido pedido){
+        
+        PedidoDAO pedidosDAO = new PedidoDAO();
+        pedidosDAO.update(pedido);     
+    }
+    
+    public void carregaJComboClientes() {
         
         ClienteDAO clienteDAO = new ClienteDAO();
         ArrayList<Cliente> clientes = clienteDAO.selectAll();
@@ -59,7 +65,7 @@ public class PedidoController {
         Pedido pedido = helper.obterModelo();
         new PedidoDAO().insert(pedido);
         
-        atualizaTabelaPedidos();
+        carregaTabela();
         helper.limparTela();
         
         

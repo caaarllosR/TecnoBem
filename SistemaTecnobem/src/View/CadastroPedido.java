@@ -15,6 +15,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,7 +33,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         pedidoController = new PedidoController(this);
         Banco.carregaClientes();
         Banco.carregaPedidos();
-        iniciar();
+        iniciar();        
     }
 
     /**
@@ -63,11 +64,11 @@ public class CadastroPedido extends javax.swing.JFrame {
         TextObservacao = new javax.swing.JTextArea();
         ButtonAgendar = new javax.swing.JButton();
         ButtonGerarNota = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TableAgendamentos = new javax.swing.JTable();
+        jScrollPanePedidos = new javax.swing.JScrollPane();
+        TablePedidos = new javax.swing.JTable();
         TextTSO = new javax.swing.JTextField();
         TextValor = new javax.swing.JTextField();
-        TextServico = new javax.swing.JTextField();
+        TextCodigoProduto = new javax.swing.JTextField();
         TextOD = new javax.swing.JTextField();
         TextOE = new javax.swing.JTextField();
         LabelOD = new javax.swing.JLabel();
@@ -197,7 +198,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         });
         getContentPane().add(ButtonGerarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 320, 180, 50));
 
-        TableAgendamentos.setModel(new javax.swing.table.DefaultTableModel(
+        TablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -208,14 +209,27 @@ public class CadastroPedido extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-        });
-        jScrollPane1.setViewportView(TableAgendamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 1090, 180));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TablePedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablePedidosMouseClicked(evt);
+            }
+        });
+        jScrollPanePedidos.setViewportView(TablePedidos);
+
+        getContentPane().add(jScrollPanePedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 1090, 180));
 
         TextTSO.setToolTipText("");
         TextTSO.addActionListener(new java.awt.event.ActionListener() {
@@ -233,13 +247,13 @@ public class CadastroPedido extends javax.swing.JFrame {
         });
         getContentPane().add(TextValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 280, 30));
 
-        TextServico.setToolTipText("");
-        TextServico.addActionListener(new java.awt.event.ActionListener() {
+        TextCodigoProduto.setToolTipText("");
+        TextCodigoProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextServicoActionPerformed(evt);
+                TextCodigoProdutoActionPerformed(evt);
             }
         });
-        getContentPane().add(TextServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 280, 30));
+        getContentPane().add(TextCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 280, 30));
 
         TextOD.setToolTipText("");
         TextOD.addActionListener(new java.awt.event.ActionListener() {
@@ -302,9 +316,9 @@ public class CadastroPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextValorActionPerformed
 
-    private void TextServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextServicoActionPerformed
+    private void TextCodigoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextCodigoProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextServicoActionPerformed
+    }//GEN-LAST:event_TextCodigoProdutoActionPerformed
 
     private void TextODActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextODActionPerformed
         // TODO add your handling code here:
@@ -333,6 +347,29 @@ public class CadastroPedido extends javax.swing.JFrame {
     private void JComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JComboBoxClienteActionPerformed
+
+    private void TablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePedidosMouseClicked
+        
+        DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
+        
+        int row = TablePedidos.getSelectedRow();
+        int rowCount = tableModel.getRowCount();
+        int columnCount = 10; //tableModel.getColumnCount();
+        StringBuilder rowStringBuilder = new StringBuilder();
+
+        //System.out.println("row: "+row+" ;rowCount: "+rowCount+" ;columnCount: "+rowCount);
+        
+        for (int column = 0; column < columnCount; column++) {
+            System.out.println("column: "+column);
+            Object cellValue = tableModel.getValueAt(row, column);
+            rowStringBuilder.append(cellValue.toString());
+
+            if (column < columnCount - 1) {
+                rowStringBuilder.append(";");
+            }                     
+        }
+        System.out.println(rowStringBuilder.toString());
+    }//GEN-LAST:event_TablePedidosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -374,6 +411,7 @@ public class CadastroPedido extends javax.swing.JFrame {
                 }
             }
         });
+              
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -396,32 +434,32 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPago;
     private javax.swing.JLabel LabelServico;
     private javax.swing.JLabel LabelValor;
-    private javax.swing.JTable TableAgendamentos;
+    private javax.swing.JTable TablePedidos;
     private javax.swing.JTextField TextAnexo;
+    private javax.swing.JTextField TextCodigoProduto;
     private javax.swing.JTextField TextDataEntrada;
     private javax.swing.JTextField TextOD;
     private javax.swing.JTextField TextOE;
     private javax.swing.JTextArea TextObservacao;
     private javax.swing.JTextField TextPerda;
     private javax.swing.JTextField TextPrevisaoDataSaida;
-    private javax.swing.JTextField TextServico;
     private javax.swing.JTextField TextTSO;
     private javax.swing.JTextField TextValor;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPanePedidos;
     // End of variables declaration//GEN-END:variables
 
     private void iniciar() {
 
-        this.pedidoController.atualizaTabelaPedidos();
-        this.pedidoController.atualizaJComboClientes();
+        this.pedidoController.carregaTabela();
+        this.pedidoController.carregaJComboClientes();
     }
 
-    public JTable getTableAgendamentos() {
-        return TableAgendamentos;
+    public JTable getTablePedidos() {
+        return TablePedidos;
     }
 
-    public void setTableAgendamentos(JTable TableAgendamentos) {
-        this.TableAgendamentos = TableAgendamentos;
+    public void setTablePedidos(JTable TablePedidos) {
+        this.TablePedidos = TablePedidos;
     }
 
     public JComboBox<String> getJComboBoxCliente() {
@@ -449,11 +487,11 @@ public class CadastroPedido extends javax.swing.JFrame {
     }
 
     public JTextField getTextServico() {
-        return TextServico;
+        return TextCodigoProduto;
     }
 
     public void setTextServico(JTextField TextServico) {
-        this.TextServico = TextServico;
+        this.TextCodigoProduto = TextServico;
     }
 
     public JTextField getTextOD() {

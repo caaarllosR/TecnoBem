@@ -26,7 +26,7 @@ public class PedidoHelper implements IHelper {
 
     public void preencherTabela(ArrayList<Pedido> pedidos) {
         
-        DefaultTableModel tableModel = (DefaultTableModel) view.getTableAgendamentos().getModel();
+        DefaultTableModel tableModel = (DefaultTableModel) view.getTablePedidos().getModel();
         tableModel.setNumRows(0);
         
         for (Pedido pedido : pedidos) {

@@ -39,7 +39,7 @@ public class ClienteController {
         this.helper = new ClienteHelper(view);
     }
 
-    public void atualizaTabela(){
+    public void carregaTabela(){
         
         ClienteDAO clienteDAO = new ClienteDAO();
         ArrayList<Cliente> clientes = clienteDAO.selectAll();
@@ -52,7 +52,7 @@ public class ClienteController {
         Cliente cliente = helper.obterModelo();
         new ClienteDAO().insert(cliente);
         
-        atualizaTabela();
+        carregaTabela();
         helper.limparTela();
 
         OpenOption options = StandardOpenOption.APPEND;
