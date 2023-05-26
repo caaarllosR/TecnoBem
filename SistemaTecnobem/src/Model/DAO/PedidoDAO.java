@@ -18,14 +18,14 @@ public class PedidoDAO {
      * Insere um pedido dentro do banco de dados
      * @param pedido exige que seja passado um objeto do tipo pedido
      */
-    public void insert(Pedido pedido){
-          
+    public boolean insert(Pedido pedido){
+        
         if(pedido.getId() == 0){
             pedido.setId(proximoId());
             Banco.pedidos.add(pedido);
-        }
-        
-        
+            return true;
+        }     
+        return false;      
     }
     
     /**
@@ -75,6 +75,7 @@ public class PedidoDAO {
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
     private boolean comparaId(Pedido pedido, Pedido pedidoAComparar) {
+        System.out.println("Pedido Id: "+pedido.getId()+"pedidoAComparar Id: "+pedidoAComparar.getId());
         return pedido.getId() == pedidoAComparar.getId();
     }
     

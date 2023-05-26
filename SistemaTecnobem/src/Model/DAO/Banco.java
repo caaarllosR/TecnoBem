@@ -117,9 +117,15 @@ public class Banco {
     }
     
     public static void carregaPedidos() throws IOException{
-    
+         
         //Instancia os Objetos
         pedidos = new ArrayList<Pedido>();
+        
+        // carregamento do arquivo de pedidos para a base de dados       
+        File filePedidos = new File("Base/Pedidos.csv");
+        
+        if (filePedidos.exists()) {
+	Path pathPedidos = Paths.get(filePedidos.getAbsolutePath());
         
         int id = 0;
         String TSO = "";
@@ -132,28 +138,8 @@ public class Banco {
         String previsaoDataSaida = "";
         String perda = "";
         String observacao = "";
-        
-        
-        // carregamento do arquivo de pedidos para a base de dados
-        
-        File filePedidos = new File("Base/Pedidos.csv");
-        filePedidos.createNewFile();
-        OpenOption options = StandardOpenOption.APPEND;
-           
-	Path pathPedidos = Paths.get(filePedidos.getAbsolutePath());
-                    
-        try(BufferedReader br = Files.newBufferedReader(pathPedidos)){
-            
-            if(br.readLine() == null) {
-                try (BufferedWriter w = Files.newBufferedWriter(pathPedidos, StandardCharsets.UTF_8, options)) {
-                    w.write("Id;Cliente;TSO;Pedido;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo\n");
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-            
-            br.close();
-        }
+               
+
         
         try(BufferedReader br = Files.newBufferedReader(pathPedidos)){
 
@@ -186,5 +172,5 @@ public class Banco {
 	}
              
     }
-    
+    }
 }

@@ -74,7 +74,7 @@ public class PedidoHelper implements IHelper {
         int    id = view.getTextId().getText().equals("") ? 0 : Integer.parseInt(view.getTextId().getText());
         String TSO = view.getTextTSO().getText();
         String cliente = obterCliente();
-        String servico = view.getTextServico().getText();
+        String servico = view.getTextProduto().getText();
         String OD = view.getTextOD().getText();
         String OE = view.getTextOE().getText();
         String valor = view.getTextValor().getText();
@@ -89,18 +89,16 @@ public class PedidoHelper implements IHelper {
         return pedido;
     }
     
-    public void obterTextTabela(JTable TablePedidos) {
+    public void obterTextTabela(int row, JTable TablePedidos) {
 
         DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
-        
-        int row = TablePedidos.getSelectedRow();
         
         view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
         
         view.getJComboBoxCliente().getItemAt(row);
         
         view.getTextTSO().setText(tableModel.getValueAt(row, 2).toString());
-        view.getTextServico().setText(tableModel.getValueAt(row, 3).toString());
+        view.getTextProduto().setText(tableModel.getValueAt(row, 3).toString());
         view.getTextOD().setText(tableModel.getValueAt(row, 4).toString());
         view.getTextOE().setText(tableModel.getValueAt(row, 5).toString());
         view.getTextValor().setText(tableModel.getValueAt(row, 6).toString());
@@ -116,7 +114,7 @@ public class PedidoHelper implements IHelper {
         view.getTextId().setText("");
         view.getTextDataEntrada().setText("");
         view.getTextTSO().setText("");
-        view.getTextServico().setText("");
+        view.getTextProduto().setText("");
         view.getTextOD().setText("");
         view.getTextOE().setText("");
         view.getTextValor().setText("");
