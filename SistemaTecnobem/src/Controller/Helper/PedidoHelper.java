@@ -89,13 +89,15 @@ public class PedidoHelper implements IHelper {
         return pedido;
     }
     
-    public void obterTextTabela(int row, JTable TablePedidos) {
+    public void obterTextTabela(JTable TablePedidos) {
 
         DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
+        int row = TablePedidos.getSelectedRow();
         
         view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
         
-        view.getJComboBoxCliente().getItemAt(row);
+        int comboIndice = view.getJComboBoxCliente().getSelectedIndex();
+        view.getJComboBoxCliente().setSelectedIndex(comboIndice);
         
         view.getTextTSO().setText(tableModel.getValueAt(row, 2).toString());
         view.getTextProduto().setText(tableModel.getValueAt(row, 3).toString());

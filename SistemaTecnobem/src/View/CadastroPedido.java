@@ -382,9 +382,8 @@ public class CadastroPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_JComboBoxClienteActionPerformed
 
     private void TablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePedidosMouseClicked
-        
-        int row = TablePedidos.getSelectedRow();
-        pedidoController.preencheText(row, TablePedidos);
+              
+        pedidoController.preencheText(TablePedidos);
     }//GEN-LAST:event_TablePedidosMouseClicked
 
     private void TextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIdActionPerformed

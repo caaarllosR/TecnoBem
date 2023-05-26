@@ -61,9 +61,9 @@ public class PedidoController {
         helper.preencheComboClientes(clientes);
     }
     
-    public void preencheText(int row, JTable TablePedidos) {
+    public void preencheText(JTable TablePedidos) {
         
-        helper.obterTextTabela(row, TablePedidos);
+        helper.obterTextTabela(TablePedidos);
     }
     
     public void limparText() {
