@@ -10,6 +10,7 @@ import Model.Servico;
 import View.CadastroPedido;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,8 +34,8 @@ public class PedidoHelper implements IHelper {
             
             tableModel.addRow(new Object[]{
                 pedido.getId(),
-                pedido.getTSO(),
                 pedido.getCliente(),
+                pedido.getTSO(),
                 pedido.getServico(),
                 pedido.getOD(),
                 pedido.getOE(),
@@ -70,6 +71,7 @@ public class PedidoHelper implements IHelper {
     @Override
     public Pedido obterModelo() {
 
+        int    id = view.getTextId().getText().equals("") ? 0 : Integer.parseInt(view.getTextId().getText());
         String TSO = view.getTextTSO().getText();
         String cliente = obterCliente();
         String servico = view.getTextServico().getText();
@@ -77,18 +79,41 @@ public class PedidoHelper implements IHelper {
         String OE = view.getTextOE().getText();
         String valor = view.getTextValor().getText();
         String dataEntrada = view.getTextDataEntrada().getText();
-        String PrevisaoDataSaida = view.getTextPrevisaoDataSaida().getText();
-        String Perda = view.getTextPerda().getText();
+        String previsaoDataSaida = view.getTextPrevisaoDataSaida().getText();
+        String perda = view.getTextPerda().getText();
         String observacao = view.getTextObservacao().getText();
         
-        Pedido pedido = new Pedido(0, TSO, cliente, servico, OD, OE, valor, dataEntrada, PrevisaoDataSaida, Perda, observacao);
+        System.out.println("TESTANDO ID: "+id);
+        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao);
         
         return pedido;
+    }
+    
+    public void obterTextTabela(JTable TablePedidos) {
+
+        DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
+        
+        int row = TablePedidos.getSelectedRow();
+        
+        view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
+        
+        view.getJComboBoxCliente().getItemAt(row);
+        
+        view.getTextTSO().setText(tableModel.getValueAt(row, 2).toString());
+        view.getTextServico().setText(tableModel.getValueAt(row, 3).toString());
+        view.getTextOD().setText(tableModel.getValueAt(row, 4).toString());
+        view.getTextOE().setText(tableModel.getValueAt(row, 5).toString());
+        view.getTextValor().setText(tableModel.getValueAt(row, 6).toString());
+        view.getTextDataEntrada().setText(tableModel.getValueAt(row, 7).toString());
+        view.getTextPrevisaoDataSaida().setText(tableModel.getValueAt(row, 8).toString());
+        view.getTextPerda().setText(tableModel.getValueAt(row, 9).toString());
+        view.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
     }
 
     @Override
     public void limparTela() {
 
+        view.getTextId().setText("");
         view.getTextDataEntrada().setText("");
         view.getTextTSO().setText("");
         view.getTextServico().setText("");

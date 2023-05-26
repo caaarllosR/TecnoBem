@@ -18,7 +18,8 @@ public class Pedido {
     
     private int id;
     private String cliente;
-    private String servico;
+    private String TSO;
+    private String produto;
     private String OD;
     private String OE;
     private String valor;
@@ -26,13 +27,12 @@ public class Pedido {
     private String previsaoDataSaida;
     private String perda;
     private String observacao;
-    private String TSO;
 
-    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda) {
+    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda) {
         this.id = id;
         this.cliente = cliente;
         this.TSO = TSO;
-        this.servico = servico;
+        this.produto = produto;
         this.OD = OD;
         this.OE = OE;
         this.valor = valor;
@@ -47,9 +47,9 @@ public class Pedido {
     }
     
     
-    public Pedido(int id, String TSO, String cliente, String servico, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao) {
+    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao) {
         
-        this(id, TSO, cliente, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda);
+        this(id, cliente, TSO, produto, OD, OE, valor, dataEntrada, previsaoDataSaida, perda);
         this.observacao = observacao;
     }
         
@@ -132,11 +132,11 @@ public class Pedido {
     }
 
     public String getServico() {
-        return servico;
+        return produto;
     }
 
     public void setServico(String servico) {
-        this.servico = servico;
+        this.produto = servico;
     }
     
     

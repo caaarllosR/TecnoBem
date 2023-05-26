@@ -22,6 +22,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import javax.swing.JTable;
 
 /**
  *
@@ -59,24 +60,33 @@ public class PedidoController {
         helper.preencheComboClientes(clientes);
     }
     
-
+    public void preencheText(JTable TablePedidos) {
+        
+        helper.obterTextTabela(TablePedidos);
+    }
+    
+    public void limparText() {
+        
+        helper.limparTela();
+    }
+        
     public void agendar() {
         
         Pedido pedido = helper.obterModelo();
-        new PedidoDAO().insert(pedido);
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        pedidoDAO.insert(pedido);
+        //pedidoDAO.update(pedido);
         
         carregaTabela();
-        helper.limparTela();
-        
-        
+        limparText();
+               
         OpenOption options = StandardOpenOption.APPEND;
         File dp = new File("Base/Pedidos.csv");
 	Path path = Paths.get(dp.getAbsolutePath());
         
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8, options)) {
-            w.write(pedido.getId()+";"+pedido.getTSO()+";"+pedido.getCliente()
-                    +";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao()+"\n");
-	}catch (IOException e){
+            w.write(pedido.getId()+";"+pedido.getCliente()+";"+pedido.getTSO()+";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao()+"\n");
+	} catch (IOException e){
             e.printStackTrace();
 	}
     }

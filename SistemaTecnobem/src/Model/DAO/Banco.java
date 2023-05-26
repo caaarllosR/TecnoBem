@@ -146,7 +146,7 @@ public class Banco {
             
             if(br.readLine() == null) {
                 try (BufferedWriter w = Files.newBufferedWriter(pathPedidos, StandardCharsets.UTF_8, options)) {
-                    w.write("Id;TSO;Cliente;Serviço;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo\n");
+                    w.write("Id;Cliente;TSO;Pedido;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo\n");
                 }catch (IOException e){
                     e.printStackTrace();
                 }
@@ -164,8 +164,8 @@ public class Banco {
                 String[] dadosPedido = br.readLine().split(";");             
 
                 id = Integer.parseInt(dadosPedido[0]);
-                TSO = dadosPedido.length >= 2 ? dadosPedido[1] : "";
-                cliente = dadosPedido.length >= 3 ? dadosPedido[2] : "";
+                cliente = dadosPedido.length >= 2 ? dadosPedido[1] : "";
+                TSO = dadosPedido.length >= 3 ? dadosPedido[2] : "";
                 servico = dadosPedido.length >= 4 ? dadosPedido[3] : "";
                 OD = dadosPedido.length >= 5 ? dadosPedido[4] : "";                                
                 OE = dadosPedido.length >= 6 ? dadosPedido[5] : "";                                                
@@ -175,7 +175,7 @@ public class Banco {
                 perda = dadosPedido.length >= 10 ? dadosPedido[9] : "";    
                 observacao = dadosPedido.length == 11 ? dadosPedido[10] : "";
                 
-                pedidos.add(new Pedido(id, TSO, cliente, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao));
+                pedidos.add(new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao));
                         
             } 
                 

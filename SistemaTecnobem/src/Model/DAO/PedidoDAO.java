@@ -75,7 +75,7 @@ public class PedidoDAO {
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
     private boolean comparaId(Pedido pedido, Pedido pedidoAComparar) {
-        return pedido.getId() ==  pedidoAComparar.getId();
+        return pedido.getId() == pedidoAComparar.getId();
     }
     
     private int proximoId(){

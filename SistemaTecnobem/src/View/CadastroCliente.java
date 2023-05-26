@@ -176,6 +176,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
         TableClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TableClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TableClientes);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 1090, 260));
