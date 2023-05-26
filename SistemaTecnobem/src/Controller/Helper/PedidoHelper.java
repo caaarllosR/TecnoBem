@@ -96,9 +96,15 @@ public class PedidoHelper implements IHelper {
         
         view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
         
-        int comboIndice = view.getJComboBoxCliente().getSelectedIndex();
-        view.getJComboBoxCliente().setSelectedIndex(comboIndice);
+        int comboSize = view.getJComboBoxCliente().getItemCount();
+        String nomeCliente = tableModel.getValueAt(row, 1).toString();
         
+        for (int i = 0; i < comboSize; i++ ) {
+            if (view.getJComboBoxCliente().getItemAt(i).toString().equals(nomeCliente)) {
+                view.getJComboBoxCliente().setSelectedIndex(i);
+            }
+        }
+
         view.getTextTSO().setText(tableModel.getValueAt(row, 2).toString());
         view.getTextProduto().setText(tableModel.getValueAt(row, 3).toString());
         view.getTextOD().setText(tableModel.getValueAt(row, 4).toString());
