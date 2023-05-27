@@ -53,7 +53,7 @@ public class ClienteHelper  implements IHelper {
     @Override
     public Cliente obterModelo() {
 
-        int    id = view.getTextId().getText().equals("") ? 0 : Integer.parseInt(view.getTextId().getText());
+        String id = view.getTextId().getText().equals("") ? "0" : view.getTextId().getText();
         String nome = view.getTextCliente().getText();        
         String cpfCnpj = view.getTextCpfCnpj().getText();
         String endereco = view.getTextEndereco().getText();
@@ -66,7 +66,7 @@ public class ClienteHelper  implements IHelper {
         String limite = view.getTextLimite().getText();
         String limiteUtilizado = view.getTextLimiteUtilizado().getText() == null || view.getTextLimiteUtilizado().getText().equals("") ? "0" : view.getTextLimiteUtilizado().getText();
         
-        Cliente cliente = new Cliente("0", nome, cpfCnpj, endereco, cep, telefone1, telefone2, email, observacao, vencimento, limite, limiteUtilizado);
+        Cliente cliente = new Cliente(id, nome, cpfCnpj, endereco, cep, telefone1, telefone2, email, observacao, vencimento, limite, limiteUtilizado);
         
         return  cliente;
 
