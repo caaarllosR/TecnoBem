@@ -76,7 +76,6 @@ public class PedidoController {
         Pedido helperPedido = helper.obterModelo();
         PedidoDAO pedidoDAO = new PedidoDAO();
         pedidoDAO.insert(helperPedido);
-        System.out.println("helper.obterModelo: "+helperPedido.getId());
         pedidoDAO.update(helperPedido);
         
         carregaTabela();

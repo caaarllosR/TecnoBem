@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Cliente {
 
-    private String idCliente = "";
+    private String id = "";
     private String nome = "";
     private String endereco = "";
     private String cep = "";
@@ -23,24 +23,26 @@ public class Cliente {
     private String observacao = "";
     private String vencimento = "";
     private String limite = "";
+    private String limiteUtilizado = "";
     
-    public Cliente(String idCliente, String nome, String telefone1, String telefone2, String email, String cpfCnpj, String endereco, String cep, String observacao, String vencimento, String limite) {
-        this.idCliente = idCliente;
-        this.nome = nome;
-        this.telefone1 = telefone1;
-        this.telefone2 = telefone2;
-        this.email = email;
+    public Cliente(String id, String nome, String cpfCnpj, String endereco, String cep, String telefone1, String telefone2, String email, String observacao, String vencimento, String limite, String limiteUtilizado) {
+        this.id = id;
+        this.nome = nome;        
         this.cpfCnpj = cpfCnpj;
         this.endereco = endereco;
         this.cep = cep;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
+        this.email = email;
         this.observacao = observacao;
         this.vencimento = vencimento;
         this.limite = limite;
+        this.limiteUtilizado = limiteUtilizado;
 
     }
 
-    public Cliente(String idCliente, String nome, String endereco, String cep) {
-        this.idCliente = idCliente;
+    public Cliente(String id, String nome, String endereco, String cep) {
+        this.id = id;
         this.nome = nome;        
         this.endereco = endereco;
         this.cep = cep;
@@ -98,12 +100,12 @@ public class Cliente {
         this.cpfCnpj = cpfCnpj;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getId() {
+        return id;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getObservacao() {
@@ -128,5 +130,13 @@ public class Cliente {
 
     public void setLimite(String limite) {
         this.limite = limite;
+    }
+    
+    public String getLimiteUtilizado() {
+        return limiteUtilizado;
+    }
+
+    public void setLimiteUtilizado(String limiteUtilizado) {
+        this.limiteUtilizado = limiteUtilizado;
     }
 }

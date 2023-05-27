@@ -21,8 +21,8 @@ public class ClienteDAO {
      */
     public void insert(Cliente cliente){
         
-        if(cliente.getIdCliente().equals("0")){
-            cliente.setIdCliente(proximoId().toString());
+        if(cliente.getId().equals("0")){
+            cliente.setId(proximoId().toString());
             Banco.clientes.add(cliente);
         }
     }
@@ -74,7 +74,7 @@ public class ClienteDAO {
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
     private boolean comparaId(Cliente cliente, Cliente clienteAComparar) {
-        return cliente.getIdCliente().equals(clienteAComparar.getIdCliente());
+        return cliente.getId().equals(clienteAComparar.getId());
     }
     
     private Integer proximoId(){
@@ -82,7 +82,7 @@ public class ClienteDAO {
         Integer maiorId = 0;
         
         for (Cliente cliente : Banco.clientes) {           
-           int id = Integer.parseInt(cliente.getIdCliente());
+           int id = Integer.parseInt(cliente.getId());
             
             if(maiorId < id){
                 maiorId = id;

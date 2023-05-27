@@ -55,7 +55,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         LabelLimite = new javax.swing.JLabel();
         TextLimite = new javax.swing.JTextField();
         TextCliente = new javax.swing.JTextField();
-        LabelVencimento = new javax.swing.JLabel();
+        LabelVencimentos = new javax.swing.JLabel();
         JScrollPane2 = new javax.swing.JScrollPane();
         TextObservacao = new javax.swing.JTextArea();
         ButtonCadastrarCliente = new javax.swing.JButton();
@@ -65,8 +65,13 @@ public class CadastroCliente extends javax.swing.JFrame {
         TextCpfCnpj = new javax.swing.JTextField();
         TextEndereco = new javax.swing.JTextField();
         TextCEP = new javax.swing.JTextField();
+        TextId = new javax.swing.JTextField();
+        LabelId = new javax.swing.JLabel();
         TextTelefone1 = new javax.swing.JTextField();
         TextTelefone2 = new javax.swing.JTextField();
+        TextLimiteUtilizado = new javax.swing.JTextField();
+        LabelLimiteUtilizado = new javax.swing.JLabel();
+        ButtonLimpar = new javax.swing.JButton();
         jComboVencimento = new javax.swing.JComboBox<>();
         LabelEmail = new javax.swing.JLabel();
         LabelClientePainelFundo = new javax.swing.JLabel();
@@ -79,47 +84,47 @@ public class CadastroCliente extends javax.swing.JFrame {
         LabelAgenda.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         LabelAgenda.setForeground(new java.awt.Color(255, 255, 255));
         LabelAgenda.setText("Cadastro Clientes");
-        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 370, 60));
+        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 370, 60));
 
         LabelCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelCliente.setForeground(new java.awt.Color(255, 255, 255));
         LabelCliente.setText("Cliente");
-        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         LabelCpfCnpj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelCpfCnpj.setForeground(new java.awt.Color(255, 255, 255));
         LabelCpfCnpj.setText("CpfCnpj");
-        getContentPane().add(LabelCpfCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        getContentPane().add(LabelCpfCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         Label.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Label.setForeground(new java.awt.Color(255, 255, 255));
         Label.setText("Endereço");
-        getContentPane().add(Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         LabelCEP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelCEP.setForeground(new java.awt.Color(255, 255, 255));
         LabelCEP.setText("CEP");
-        getContentPane().add(LabelCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(LabelCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         LabelTelefone1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelTelefone1.setForeground(new java.awt.Color(255, 255, 255));
         LabelTelefone1.setText("Telefone1");
-        getContentPane().add(LabelTelefone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        getContentPane().add(LabelTelefone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         LabelTelefone2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelTelefone2.setForeground(new java.awt.Color(255, 255, 255));
         LabelTelefone2.setText("Telefone2");
-        getContentPane().add(LabelTelefone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        getContentPane().add(LabelTelefone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         LabelObservacao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelObservacao.setForeground(new java.awt.Color(255, 255, 255));
         LabelObservacao.setText("Observação");
-        getContentPane().add(LabelObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
+        getContentPane().add(LabelObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
 
         LabelLimite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelLimite.setForeground(new java.awt.Color(255, 255, 255));
         LabelLimite.setText("Limite ");
-        getContentPane().add(LabelLimite, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        getContentPane().add(LabelLimite, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
 
         TextLimite.setToolTipText("");
         TextLimite.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +132,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextLimiteActionPerformed(evt);
             }
         });
-        getContentPane().add(TextLimite, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 280, 30));
+        getContentPane().add(TextLimite, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 70, 30));
 
         TextCliente.setToolTipText("");
         TextCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -135,40 +140,41 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(TextCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 280, 30));
+        getContentPane().add(TextCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 280, 30));
 
-        LabelVencimento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LabelVencimento.setForeground(new java.awt.Color(255, 255, 255));
-        LabelVencimento.setText("Vencimento");
-        getContentPane().add(LabelVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        LabelVencimentos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LabelVencimentos.setForeground(new java.awt.Color(255, 255, 255));
+        LabelVencimentos.setText("Vencimento");
+        getContentPane().add(LabelVencimentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         TextObservacao.setColumns(20);
         TextObservacao.setRows(5);
         JScrollPane2.setViewportView(TextObservacao);
 
-        getContentPane().add(JScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 610, 150));
+        getContentPane().add(JScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 610, 150));
 
         ButtonCadastrarCliente.setBackground(new java.awt.Color(60, 233, 106));
         ButtonCadastrarCliente.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         ButtonCadastrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCadastrarCliente.setText("Cadastrar");
+        ButtonCadastrarCliente.setToolTipText("");
         ButtonCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonCadastrarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 610, 50));
+        getContentPane().add(ButtonCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 200, 50));
 
         TableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Cliente", "CpfCnpj", "Endereço", "CEP", "Telefone1", "Telefone2", "Email", "Observação", "Vencimento", "Limite"
+                "Id", "Cliente", "CpfCnpj", "Endereço", "CEP", "Telefone1", "Telefone2", "Email", "Observação", "Vencimento", "Limite", "LimiteUtilizado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -177,9 +183,14 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
         TableClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TableClientes.getTableHeader().setReorderingAllowed(false);
+        TableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TableClientes);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 1090, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 1090, 200));
 
         TextEmail.setToolTipText("");
         TextEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +198,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(TextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 280, 30));
+        getContentPane().add(TextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 280, 30));
 
         TextCpfCnpj.setToolTipText("");
         TextCpfCnpj.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +206,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextCpfCnpjActionPerformed(evt);
             }
         });
-        getContentPane().add(TextCpfCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 280, 30));
+        getContentPane().add(TextCpfCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 280, 30));
 
         TextEndereco.setToolTipText("");
         TextEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +214,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextEnderecoActionPerformed(evt);
             }
         });
-        getContentPane().add(TextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 280, 30));
+        getContentPane().add(TextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 280, 30));
 
         TextCEP.setToolTipText("");
         TextCEP.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +222,21 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextCEPActionPerformed(evt);
             }
         });
-        getContentPane().add(TextCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 280, 30));
+        getContentPane().add(TextCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 280, 30));
+
+        TextId.setToolTipText("");
+        TextId.setEnabled(false);
+        TextId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextIdActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TextId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 280, 30));
+
+        LabelId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LabelId.setForeground(new java.awt.Color(255, 255, 255));
+        LabelId.setText("Id");
+        getContentPane().add(LabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         TextTelefone1.setToolTipText("");
         TextTelefone1.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +244,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextTelefone1ActionPerformed(evt);
             }
         });
-        getContentPane().add(TextTelefone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 280, 30));
+        getContentPane().add(TextTelefone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 280, 30));
 
         TextTelefone2.setToolTipText("");
         TextTelefone2.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +252,32 @@ public class CadastroCliente extends javax.swing.JFrame {
                 TextTelefone2ActionPerformed(evt);
             }
         });
-        getContentPane().add(TextTelefone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 280, 30));
+        getContentPane().add(TextTelefone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 280, 30));
+
+        TextLimiteUtilizado.setToolTipText("");
+        TextLimiteUtilizado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextLimiteUtilizadoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TextLimiteUtilizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 70, 30));
+
+        LabelLimiteUtilizado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LabelLimiteUtilizado.setForeground(new java.awt.Color(255, 255, 255));
+        LabelLimiteUtilizado.setText("LimiteUtiliado ");
+        getContentPane().add(LabelLimiteUtilizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, -1, -1));
+
+        ButtonLimpar.setBackground(new java.awt.Color(60, 233, 106));
+        ButtonLimpar.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
+        ButtonLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonLimpar.setText("Limpar");
+        ButtonLimpar.setToolTipText("");
+        ButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonLimparActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 110, 40));
 
         jComboVencimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quinzenal", "Mensal" }));
         jComboVencimento.addActionListener(new java.awt.event.ActionListener() {
@@ -235,12 +285,12 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jComboVencimentoActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 280, 30));
+        getContentPane().add(jComboVencimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 280, 30));
 
         LabelEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         LabelEmail.setText("Email");
-        getContentPane().add(LabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        getContentPane().add(LabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
         LabelClientePainelFundo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelClientePainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Pedidos-PainelFundo.png"))); // NOI18N
@@ -298,6 +348,24 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboVencimentoActionPerformed
 
+    private void ButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLimparActionPerformed
+        
+        this.clienteController.limparText();
+    }//GEN-LAST:event_ButtonLimparActionPerformed
+
+    private void TextLimiteUtilizadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextLimiteUtilizadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextLimiteUtilizadoActionPerformed
+
+    private void TextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextIdActionPerformed
+
+    private void TableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientesMouseClicked
+
+        clienteController.preencheText(TableClientes);
+    }//GEN-LAST:event_TableClientesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +410,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonCadastrarCliente;
+    private javax.swing.JButton ButtonLimpar;
     private javax.swing.JScrollPane JScrollPane2;
     private javax.swing.JLabel Label;
     private javax.swing.JLabel LabelAgenda;
@@ -351,18 +420,22 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel LabelClientePainelFundo;
     private javax.swing.JLabel LabelCpfCnpj;
     private javax.swing.JLabel LabelEmail;
+    private javax.swing.JLabel LabelId;
     private javax.swing.JLabel LabelLimite;
+    private javax.swing.JLabel LabelLimiteUtilizado;
     private javax.swing.JLabel LabelObservacao;
     private javax.swing.JLabel LabelTelefone1;
     private javax.swing.JLabel LabelTelefone2;
-    private javax.swing.JLabel LabelVencimento;
+    private javax.swing.JLabel LabelVencimentos;
     private javax.swing.JTable TableClientes;
     private javax.swing.JTextField TextCEP;
     private javax.swing.JTextField TextCliente;
     private javax.swing.JTextField TextCpfCnpj;
     private javax.swing.JTextField TextEmail;
     private javax.swing.JTextField TextEndereco;
+    private javax.swing.JTextField TextId;
     private javax.swing.JTextField TextLimite;
+    private javax.swing.JTextField TextLimiteUtilizado;
     private javax.swing.JTextArea TextObservacao;
     private javax.swing.JTextField TextTelefone1;
     private javax.swing.JTextField TextTelefone2;
@@ -447,11 +520,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         this.TextTelefone2 = TextTelefone2;
     }
 
-    public JComboBox getTextVencimento() {
+    public JComboBox getJComboBoxVencimento() {
         return jComboVencimento;
     }
     
-    public void setTextVencimento(JTextField jComboVencimento) {
+    public void setJComboBoxVencimento(JTextField jComboVencimento) {
         //this.jComboVencimento = jComboVencimento;
     }
     
@@ -461,6 +534,22 @@ public class CadastroCliente extends javax.swing.JFrame {
     
     public void setTextLimite(JTextField TextLimite) {
         this.TextLimite = TextLimite;
+    }
+    
+    public JTextField getTextLimiteUtilizado() {
+        return TextLimiteUtilizado;
+    }
+    
+    public void setTextLimiteUtilizado(JTextField TextLimiteUtilizado) {
+        this.TextLimiteUtilizado = TextLimiteUtilizado;
+    }
+    
+    public JTextField getTextId() {
+        return TextId;
+    }
+    
+    public void setTextId(JTextField TextId) {
+        this.TextId = TextId;
     }
     
 }
