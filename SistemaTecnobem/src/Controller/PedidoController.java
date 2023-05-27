@@ -11,7 +11,7 @@ import Model.DAO.Banco;
 import Model.DAO.PedidoDAO;
 import Model.DAO.ClienteDAO;
 import Model.DAO.ServicoDAO;
-import Model.Servico;
+import Model.Produto;
 import View.CadastroPedido;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -88,7 +88,7 @@ public class PedidoController {
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             w.write("Id;Cliente;TSO;Pedido;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo\n");
             for (Pedido pedido : Banco.pedidos) {
-                w.write(pedido.getId()+";"+pedido.getCliente()+";"+pedido.getTSO()+";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao());
+                w.write(pedido.getId()+";"+pedido.getCliente()+";"+pedido.getTSO()+";"+pedido.getServico()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao()+";"+pedido.getPago());
                 w.newLine();
             }
 	

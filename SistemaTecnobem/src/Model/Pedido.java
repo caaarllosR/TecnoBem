@@ -27,8 +27,9 @@ public class Pedido {
     private String previsaoDataSaida;
     private String perda;
     private String observacao;
-
-    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda) {
+    private String pago;
+    
+    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String pago) {
         this.id = id;
         this.cliente = cliente;
         this.TSO = TSO;
@@ -44,12 +45,13 @@ public class Pedido {
         this.dataEntrada = dataEntrada;
         this.previsaoDataSaida = previsaoDataSaida;
         this.perda = perda;
+        this.pago = pago;
     }
     
     
-    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao) {
+    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao, String pago) {
         
-        this(id, cliente, TSO, produto, OD, OE, valor, dataEntrada, previsaoDataSaida, perda);
+        this(id, cliente, TSO, produto, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, pago);
         this.observacao = observacao;
     }
         
@@ -135,10 +137,12 @@ public class Pedido {
         return produto;
     }
 
-    public void setServico(String servico) {
-        this.produto = servico;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
     
-    
-    
+    public String getPago() {
+        return pago;
+    }
+
 }

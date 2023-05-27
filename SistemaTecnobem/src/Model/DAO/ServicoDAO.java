@@ -5,7 +5,7 @@
  */
 package Model.DAO;
 
-import Model.Servico;
+import Model.Produto;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +19,7 @@ public class ServicoDAO {
      * Insere um servico dentro do banco de dados
      * @param servico exige que seja passado um objeto do tipo servico
      */
-    public void insert(Servico servico){
+    public void insert(Produto servico){
         Banco.servicos.add(servico);
     }
     
@@ -28,7 +28,7 @@ public class ServicoDAO {
      * @param servico
      * @return 
      */
-    public boolean update(Servico servico){
+    public boolean update(Produto servico){
         
         for (int i = 0; i < Banco.servicos.size(); i++) {
             if(idSaoIguais(Banco.servicos.get(i),servico)){
@@ -45,8 +45,8 @@ public class ServicoDAO {
      * @param servico
      * @return 
      */
-    public boolean delete(Servico servico){
-        for (Servico servicoLista : Banco.servicos) {
+    public boolean delete(Produto servico){
+        for (Produto servicoLista : Banco.servicos) {
             if(idSaoIguais(servicoLista,servico)){
                 Banco.servicos.remove(servicoLista);
                 return true;
@@ -59,7 +59,7 @@ public class ServicoDAO {
      * Retorna um arraylist com todos os servicos do banco de dados
      * @return uma lista com todos os registros do banco
      */
-    public ArrayList<Servico> selectAll(){
+    public ArrayList<Produto> selectAll(){
         return Banco.servicos;
     }
     
@@ -69,7 +69,7 @@ public class ServicoDAO {
      * @param servicoAComparar
      * @return verdadeiro caso os id forem iguais e falso se nao forem
      */
-    private boolean idSaoIguais(Servico servico, Servico servicoAComparar) {
+    private boolean idSaoIguais(Produto servico, Produto servicoAComparar) {
         return servico.getId() ==  servicoAComparar.getId();
     }
     

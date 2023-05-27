@@ -10,6 +10,7 @@ import Model.DAO.Banco;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTable;
@@ -73,12 +74,12 @@ public class CadastroPedido extends javax.swing.JFrame {
         TextOE = new javax.swing.JTextField();
         TextId = new javax.swing.JTextField();
         LabelId = new javax.swing.JLabel();
+        jCheckBoxPago = new javax.swing.JCheckBox();
         LabelOD = new javax.swing.JLabel();
         ButtonLimpar = new javax.swing.JButton();
         LabelPago = new javax.swing.JLabel();
-        CheckBoxPago = new java.awt.Checkbox();
         javax.swing.JLabel LabelOE = new javax.swing.JLabel();
-        LabelAgendaPainelFundo = new javax.swing.JLabel();
+        LabelPedidoPainelFundo = new javax.swing.JLabel();
         LabelAgendaFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -288,6 +289,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         LabelId.setForeground(new java.awt.Color(255, 255, 255));
         LabelId.setText("Id");
         getContentPane().add(LabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        getContentPane().add(jCheckBoxPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 30, 20));
 
         LabelOD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelOD.setForeground(new java.awt.Color(255, 255, 255));
@@ -310,21 +312,15 @@ public class CadastroPedido extends javax.swing.JFrame {
         LabelPago.setText("Pago");
         getContentPane().add(LabelPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, -1, 20));
 
-        CheckBoxPago.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CheckBoxPago.setEnabled(false);
-        CheckBoxPago.setMinimumSize(new java.awt.Dimension(60, 60));
-        CheckBoxPago.setName(""); // NOI18N
-        getContentPane().add(CheckBoxPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 20, 20));
-
         LabelOE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelOE.setForeground(new java.awt.Color(255, 255, 255));
         LabelOE.setText("OE");
         getContentPane().add(LabelOE, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, -1, -1));
 
-        LabelAgendaPainelFundo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        LabelAgendaPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Pedidos-PainelFundo.png"))); // NOI18N
-        LabelAgendaPainelFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(LabelAgendaPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -140, -1, 1000));
+        LabelPedidoPainelFundo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        LabelPedidoPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Pedidos-PainelFundo.png"))); // NOI18N
+        LabelPedidoPainelFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(LabelPedidoPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -140, -1, 1000));
 
         LabelAgendaFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/PedidosFundo.png"))); // NOI18N
         LabelAgendaFundo.setAutoscrolls(true);
@@ -442,12 +438,10 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JButton ButtonAgendar;
     private javax.swing.JButton ButtonGerarNota;
     private javax.swing.JButton ButtonLimpar;
-    private java.awt.Checkbox CheckBoxPago;
     private javax.swing.JComboBox<String> JComboBoxCliente;
     private javax.swing.JScrollPane JScrollPaneObservacao;
     private javax.swing.JLabel LabelAgenda;
     private javax.swing.JLabel LabelAgendaFundo;
-    private javax.swing.JLabel LabelAgendaPainelFundo;
     private javax.swing.JLabel LabelAnexo;
     private javax.swing.JLabel LabelCliente;
     private javax.swing.JLabel LabelData;
@@ -457,6 +451,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel LabelOD;
     private javax.swing.JLabel LabelObservacao;
     private javax.swing.JLabel LabelPago;
+    private javax.swing.JLabel LabelPedidoPainelFundo;
     private javax.swing.JLabel LabelProduto;
     private javax.swing.JLabel LabelTSO;
     private javax.swing.JLabel LabelValor;
@@ -472,6 +467,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JTextField TextPrevisaoDataSaida;
     private javax.swing.JTextField TextTSO;
     private javax.swing.JTextField TextValor;
+    private javax.swing.JCheckBox jCheckBoxPago;
     private javax.swing.JScrollPane jScrollPanePedidos;
     // End of variables declaration//GEN-END:variables
 
@@ -579,6 +575,10 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     public void setTextAnexo(JTextField TextAnexo) {
         this.TextValor = TextAnexo;
+    }
+    
+    public JCheckBox getCheckBoxPago() {
+        return jCheckBoxPago;
     }
     
     

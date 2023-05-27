@@ -7,7 +7,7 @@ package Model.DAO;
 
 import Model.Pedido;
 import Model.Cliente;
-import Model.Servico;
+import Model.Produto;
 import Model.Usuario;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,7 +30,7 @@ public class Banco {
     
     public static ArrayList<Usuario> usuarios;
     public static ArrayList<Cliente> clientes;
-    public static ArrayList<Servico> servicos;
+    public static ArrayList<Produto> servicos;
     public static ArrayList<Pedido>  pedidos;
     
     
@@ -89,7 +89,7 @@ public class Banco {
                     observacao = dadosClientes.length >= 9 ? dadosClientes[8] : "";
                     vencimento = dadosClientes.length >= 10 ? dadosClientes[9] : "";    
                     limite = dadosClientes.length >= 11 ? dadosClientes[10] : "";
-                    limite = dadosClientes.length == 12 ? dadosClientes[11] : "";
+                    limiteUtilizado = dadosClientes.length == 12 ? dadosClientes[11] : "";
 
                     clientes.add(new Cliente(id, cliente, cpfCnpj, endereco, cep, telefone1, telefone2, email, observacao, vencimento, limite, limiteUtilizado));
 
@@ -125,6 +125,7 @@ public class Banco {
             String previsaoDataSaida = "";
             String perda = "";
             String observacao = "";
+            String pago = "";
 
 
 
@@ -146,9 +147,10 @@ public class Banco {
                     dataEntrega = dadosPedido.length >= 8 ? dadosPedido[7] : "";
                     previsaoDataSaida = dadosPedido.length >= 9 ? dadosPedido[8] : "";
                     perda = dadosPedido.length >= 10 ? dadosPedido[9] : "";    
-                    observacao = dadosPedido.length == 11 ? dadosPedido[10] : "";
+                    observacao = dadosPedido.length >= 11 ? dadosPedido[10] : "";
+                    pago = dadosPedido.length == 12 ? dadosPedido[11] : "";
 
-                    pedidos.add(new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao));
+                    pedidos.add(new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao, pago));
 
                 } 
 

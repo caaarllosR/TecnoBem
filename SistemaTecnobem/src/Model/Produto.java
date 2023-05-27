@@ -8,7 +8,7 @@ package Model;
  *
  * @author X
  */
-public class Servico {
+public class Produto {
 
     public int getId() {
         return id;
@@ -22,7 +22,7 @@ public class Servico {
     private String descricao;
     private float valor;
 
-    public Servico(int id, String descricao, float valor) {
+    public Produto(int id, String descricao, float valor) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;

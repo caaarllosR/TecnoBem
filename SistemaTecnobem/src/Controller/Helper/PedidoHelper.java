@@ -6,7 +6,7 @@ package Controller.Helper;
 
 import Model.Pedido;
 import Model.Cliente;
-import Model.Servico;
+import Model.Produto;
 import View.CadastroPedido;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -43,7 +43,9 @@ public class PedidoHelper implements IHelper {
                 pedido.getDataEntrega(),
                 pedido.getPrevisaoDataSaida(),
                 pedido.getPerda(),
-                pedido.getObservacao()
+                pedido.getObservacao(),
+                "",
+                pedido.getPago()
             });
         }
         
@@ -82,9 +84,8 @@ public class PedidoHelper implements IHelper {
         String previsaoDataSaida = view.getTextPrevisaoDataSaida().getText();
         String perda = view.getTextPerda().getText();
         String observacao = view.getTextObservacao().getText();
-        
-        System.out.println("TESTANDO ID: "+id);
-        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao);
+        String pago = view.getCheckBoxPago().isSelected() ? "SIM" : "NÂO";
+        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao, pago);
         
         return pedido;
     }
@@ -100,7 +101,7 @@ public class PedidoHelper implements IHelper {
         String nomeCliente = tableModel.getValueAt(row, 1).toString();
         
         for (int i = 0; i < comboSize; i++ ) {
-            if (view.getJComboBoxCliente().getItemAt(i).toString().equals(nomeCliente)) {
+            if (view.getJComboBoxCliente().getItemAt(i).equals(nomeCliente)) {
                 view.getJComboBoxCliente().setSelectedIndex(i);
             }
         }
@@ -114,6 +115,7 @@ public class PedidoHelper implements IHelper {
         view.getTextPrevisaoDataSaida().setText(tableModel.getValueAt(row, 8).toString());
         view.getTextPerda().setText(tableModel.getValueAt(row, 9).toString());
         view.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
+        view.getCheckBoxPago().setSelected(!tableModel.getValueAt(row, 11).toString().equals("SIM") ? false : true);
     }
 
     @Override
@@ -131,6 +133,7 @@ public class PedidoHelper implements IHelper {
         view.getTextPerda().setText("");
         view.getTextObservacao().setText("");
         view.getTextAnexo().setText("");
+        view.getCheckBoxPago().setSelected(false);
     }
     
 }

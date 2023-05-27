@@ -6,7 +6,7 @@ package Controller.Helper;
 
 import Model.Cliente;
 import Model.Pedido;
-import Model.Servico;
+import Model.Produto;
 import View.CadastroCliente;
 import View.CadastroPedido;
 import java.util.ArrayList;
