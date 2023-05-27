@@ -189,7 +189,7 @@ public class CadastroPedido extends javax.swing.JFrame {
                 ButtonAgendarActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 190, 50));
+        getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 230, 50));
 
         ButtonGerarNota.setBackground(new java.awt.Color(60, 233, 106));
         ButtonGerarNota.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -200,7 +200,7 @@ public class CadastroPedido extends javax.swing.JFrame {
                 ButtonGerarNotaActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonGerarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 400, 180, 50));
+        getContentPane().add(ButtonGerarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, 230, 50));
 
         TablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -370,7 +370,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPerdaActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_ButtonGerarNotaActionPerformed
 
     private void JComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxClienteActionPerformed
