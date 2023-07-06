@@ -5,24 +5,17 @@
 package Controller;
 
 import Controller.Helper.ClienteHelper;
-import Controller.Helper.PedidoHelper;
 import Model.Cliente;
 import Model.DAO.Banco;
 import Model.DAO.ClienteDAO;
-import Model.DAO.PedidoDAO;
-import Model.Pedido;
 import View.CadastroCliente;
-import View.CadastroPedido;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import javax.swing.JTable;
 
@@ -76,8 +69,8 @@ public class ClienteController {
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             w.write("Id;Cliente;CpfCnpj;Endereço;CEP;Telefone1;Telefone2;E-mail;Observação;Vencimento;Limite;LimiteUtilizado\n");          
             for(Cliente cliente : Banco.clientes) {
-                w.write(cliente.getId()+";"+cliente.getNome()+cliente.getCpfCnpj()+";"+cliente.getEndereco()+";"+cliente.getCep()+";"+cliente.getTelefone1()+";"+cliente.getTelefone2()
-                    +";"+cliente.getEmail()+";"+";"+cliente.getObservacao()
+                w.write(cliente.getId()+";"+cliente.getNome()+";"+cliente.getCpfCnpj()+";"+cliente.getEndereco()+";"+cliente.getCep()+";"+cliente.getTelefone1()+";"+cliente.getTelefone2()
+                    +";"+cliente.getEmail()+";"+cliente.getObservacao()
                     +";"+cliente.getVencimento()+";"+cliente.getLimite()+";"+cliente.getLimiteUtilizado());
                 w.newLine();
             }

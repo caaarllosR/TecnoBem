@@ -279,7 +279,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
         getContentPane().add(ButtonLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 110, 40));
 
-        jComboVencimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quinzenal", "Mensal" }));
+        jComboVencimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Vista", "Semanal", "Quinzenal" }));
         jComboVencimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboVencimentoActionPerformed(evt);

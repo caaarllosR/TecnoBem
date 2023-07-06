@@ -527,9 +527,10 @@
     <Component class="javax.swing.JComboBox" name="jComboVencimento">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Quinzenal"/>
-            <StringItem index="1" value="Mensal"/>
+          <StringArray count="3">
+            <StringItem index="0" value="A Vista"/>
+            <StringItem index="1" value="Semanal"/>
+            <StringItem index="2" value="Quinzenal"/>
           </StringArray>
         </Property>
       </Properties>

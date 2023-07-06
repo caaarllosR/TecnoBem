@@ -7,12 +7,16 @@ package View;
 
 import Controller.PedidoController;
 import Model.DAO.Banco;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -370,7 +374,9 @@ public class CadastroPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPerdaActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
-
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.pedidoController.printJFrame(this);
+        
     }//GEN-LAST:event_ButtonGerarNotaActionPerformed
 
     private void JComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxClienteActionPerformed
