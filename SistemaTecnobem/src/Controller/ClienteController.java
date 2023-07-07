@@ -34,9 +34,9 @@ public class ClienteController {
         this.helper = new ClienteHelper(view);
     }
 
-    public void preencheText(JTable TableClientes) {
+    public void preencheCamposTela(JTable tableClientes) {
         
-        helper.obterTextTabela(TableClientes);
+        helper.obterCamposJTable(tableClientes);
     }
     
     public void limparText() {
@@ -49,7 +49,7 @@ public class ClienteController {
         ClienteDAO clienteDAO = new ClienteDAO();
         ArrayList<Cliente> clientes = clienteDAO.selectAll();
         
-        helper.preencherTabela(clientes);
+        helper.preencherJTable(clientes);
     }
     
     public void cadastrar() throws IOException {

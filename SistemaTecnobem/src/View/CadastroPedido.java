@@ -7,20 +7,15 @@ package View;
 
 import Controller.PedidoController;
 import Model.DAO.Banco;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import Model.GerenciadorDepedidos;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -70,7 +65,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         ButtonAgendar = new javax.swing.JButton();
         ButtonGerarNota = new javax.swing.JButton();
         jScrollPanePedidos = new javax.swing.JScrollPane();
-        TablePedidos = new javax.swing.JTable();
+        tablePedidos = new javax.swing.JTable();
         TextTSO = new javax.swing.JTextField();
         TextValor = new javax.swing.JTextField();
         TextCodigoProduto = new javax.swing.JTextField();
@@ -85,6 +80,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         javax.swing.JLabel LabelOE = new javax.swing.JLabel();
         LabelPedidoPainelFundo = new javax.swing.JLabel();
         LabelAgendaFundo = new javax.swing.JLabel();
+        TextValor1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -206,7 +202,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         });
         getContentPane().add(ButtonGerarNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, 230, 50));
 
-        TablePedidos.setModel(new javax.swing.table.DefaultTableModel(
+        tablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -229,14 +225,14 @@ public class CadastroPedido extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TablePedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TablePedidos.getTableHeader().setReorderingAllowed(false);
-        TablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablePedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablePedidos.getTableHeader().setReorderingAllowed(false);
+        tablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TablePedidosMouseClicked(evt);
+                tablePedidosMouseClicked(evt);
             }
         });
-        jScrollPanePedidos.setViewportView(TablePedidos);
+        jScrollPanePedidos.setViewportView(tablePedidos);
 
         getContentPane().add(jScrollPanePedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, 1090, 170));
 
@@ -330,6 +326,14 @@ public class CadastroPedido extends javax.swing.JFrame {
         LabelAgendaFundo.setAutoscrolls(true);
         getContentPane().add(LabelAgendaFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1300, 1000));
 
+        TextValor1.setToolTipText("");
+        TextValor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextValor1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TextValor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 280, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -374,8 +378,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPerdaActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        this.pedidoController.printJFrame(this);
+        new ImprimirNota().setVisible(true);
         
     }//GEN-LAST:event_ButtonGerarNotaActionPerformed
 
@@ -383,10 +386,10 @@ public class CadastroPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JComboBoxClienteActionPerformed
 
-    private void TablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablePedidosMouseClicked
+    private void tablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePedidosMouseClicked
               
-        pedidoController.preencheText(TablePedidos);
-    }//GEN-LAST:event_TablePedidosMouseClicked
+        GerenciadorDepedidos.getInstance().setPedido(pedidoController.preencheCamposTela(tablePedidos));
+    }//GEN-LAST:event_tablePedidosMouseClicked
 
     private void TextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIdActionPerformed
         // TODO add your handling code here:
@@ -396,6 +399,10 @@ public class CadastroPedido extends javax.swing.JFrame {
         
         pedidoController.limparText();
     }//GEN-LAST:event_ButtonLimparActionPerformed
+
+    private void TextValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextValor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextValor1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -461,7 +468,6 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JLabel LabelProduto;
     private javax.swing.JLabel LabelTSO;
     private javax.swing.JLabel LabelValor;
-    private javax.swing.JTable TablePedidos;
     private javax.swing.JTextField TextAnexo;
     private javax.swing.JTextField TextCodigoProduto;
     private javax.swing.JTextField TextDataEntrada;
@@ -473,8 +479,10 @@ public class CadastroPedido extends javax.swing.JFrame {
     private javax.swing.JTextField TextPrevisaoDataSaida;
     private javax.swing.JTextField TextTSO;
     private javax.swing.JTextField TextValor;
+    private javax.swing.JTextField TextValor1;
     private javax.swing.JCheckBox jCheckBoxPago;
     private javax.swing.JScrollPane jScrollPanePedidos;
+    private javax.swing.JTable tablePedidos;
     // End of variables declaration//GEN-END:variables
 
     private void iniciar() {
@@ -484,11 +492,11 @@ public class CadastroPedido extends javax.swing.JFrame {
     }
 
     public JTable getTablePedidos() {
-        return TablePedidos;
+        return tablePedidos;
     }
 
     public void setTablePedidos(JTable TablePedidos) {
-        this.TablePedidos = TablePedidos;
+        this.tablePedidos = TablePedidos;
     }
 
     public JComboBox<String> getJComboBoxCliente() {

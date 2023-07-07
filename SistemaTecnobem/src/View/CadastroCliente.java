@@ -363,7 +363,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void TableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientesMouseClicked
 
-        clienteController.preencheText(TableClientes);
+        clienteController.preencheCamposTela(TableClientes);
     }//GEN-LAST:event_TableClientesMouseClicked
 
     /**

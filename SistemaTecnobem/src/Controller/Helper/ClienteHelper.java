@@ -25,7 +25,7 @@ public class ClienteHelper  implements IHelper {
         this.view = view;
     }
 
-    public void preencherTabela(ArrayList<Cliente> clientes) {
+    public void preencherJTable(ArrayList<Cliente> clientes) {
         
         DefaultTableModel tableModel = (DefaultTableModel) view.getTableClientes().getModel();
         tableModel.setNumRows(0);
@@ -72,7 +72,7 @@ public class ClienteHelper  implements IHelper {
 
     }
 
-    public void obterTextTabela(JTable TableClientes) {
+    public void obterCamposJTable(JTable TableClientes) {
 
         DefaultTableModel tableModel = (DefaultTableModel) TableClientes.getModel();
         int row = TableClientes.getSelectedRow();

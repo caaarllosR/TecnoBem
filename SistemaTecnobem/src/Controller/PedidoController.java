@@ -11,6 +11,7 @@ import Model.DAO.Banco;
 import Model.DAO.PedidoDAO;
 import Model.DAO.ClienteDAO;
 import View.CadastroPedido;
+import View.ImprimirNota;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -39,7 +40,11 @@ public class PedidoController {
     private final CadastroPedido view;
     private final PedidoHelper helper;
 
-
+    public PedidoController() {
+        this.view = null;
+        this.helper = null;
+    }
+        
     public PedidoController(CadastroPedido view) {
         this.view = view;
         this.helper = new PedidoHelper(view);
@@ -50,7 +55,7 @@ public class PedidoController {
         PedidoDAO pedidosDAO = new PedidoDAO();
         ArrayList<Pedido> pedidos = pedidosDAO.selectAll();
         
-        helper.preencherTabela(pedidos);
+        helper.preencherJTable(pedidos);
     }
     
     public void atualizaTabela(Pedido pedido){
@@ -66,9 +71,9 @@ public class PedidoController {
         helper.preencheComboClientes(clientes);
     }
     
-    public void preencheText(JTable TablePedidos) {
+    public Pedido preencheCamposTela(JTable tablePedidos) {
         
-        helper.obterTextTabela(TablePedidos);
+        return helper.obterCamposJTable(tablePedidos);
     }
     
     public void limparText() {
@@ -100,52 +105,5 @@ public class PedidoController {
         } catch (IOException e){
             e.printStackTrace();
 	}
-    }
-  
-    public void printJFrame(JFrame frame) {
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
-        // Realizar a impressão do conteúdo do JFrame
-        PrinterJob job = PrinterJob.getPrinterJob();
-        job.setPrintable(new Printable() {
-            @Override
-            public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-                if (pageIndex > 0) {
-                    return NO_SUCH_PAGE;
-                }
-
-                Graphics2D g2d = (Graphics2D) graphics;
-                g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
-
-                JPanel contentPane = (JPanel) frame.getContentPane();
-                contentPane.printAll(g2d);
-
-                return PAGE_EXISTS;
-            }
-        });
-
-        if (job.printDialog()) {
-            try {
-                job.print();
-                System.out.println("Impressão concluída com sucesso.");
-            } catch (PrinterException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    public Image resizeImage(Image image, int desiredWidth) {
-        int originalWidth = image.getWidth(null);
-        int originalHeight = image.getHeight(null);
-        int scaledHeight = (int) ((double) originalHeight / originalWidth * desiredWidth);
-
-        BufferedImage resizedImage = new BufferedImage(desiredWidth, scaledHeight, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g2d = resizedImage.createGraphics();
-        g2d.drawImage(image, 0, 0, desiredWidth, scaledHeight, null);
-        g2d.dispose();
-
-        return resizedImage;
     }
 }

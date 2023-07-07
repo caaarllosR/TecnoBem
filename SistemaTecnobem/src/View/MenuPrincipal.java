@@ -44,7 +44,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonProdutos = new javax.swing.JButton();
         jButtonEstoque = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabelClientes = new javax.swing.JButton();
+        jButtonlClientes = new javax.swing.JButton();
         jLabelMenuPrincipalFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +58,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonPedidos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonPedidos.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPedidos.setText("Pedidos");
-        jButtonPedidos.setActionCommand("Pedidos");
         jButtonPedidos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonPedidos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButtonPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +97,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonProdutos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonProdutos.setForeground(new java.awt.Color(255, 255, 255));
         jButtonProdutos.setText("Produtos");
-        jButtonProdutos.setActionCommand("Produtos");
         jButtonProdutos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonProdutos.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jButtonProdutos.addActionListener(new java.awt.event.ActionListener() {
@@ -124,18 +122,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/cliente_icon.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 90, 70));
 
-        jLabelClientes.setBackground(new java.awt.Color(51, 153, 255));
-        jLabelClientes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelClientes.setText("Clientes");
-        jLabelClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelClientes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jLabelClientes.addActionListener(new java.awt.event.ActionListener() {
+        jButtonlClientes.setBackground(new java.awt.Color(51, 153, 255));
+        jButtonlClientes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonlClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonlClientes.setText("Clientes");
+        jButtonlClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonlClientes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jButtonlClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLabelClientesActionPerformed(evt);
+                jButtonlClientesActionPerformed(evt);
             }
         });
-        getContentPane().add(jLabelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 140, 100));
+        getContentPane().add(jButtonlClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 140, 100));
 
         jLabelMenuPrincipalFundo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelMenuPrincipalFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/fundo-MenuPrincipal.jpg"))); // NOI18N
@@ -144,13 +142,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabelClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLabelClientesActionPerformed
+    private void jButtonlClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonlClientesActionPerformed
         try {
             menuPrincipalController.navegarParaCadastroClientes();
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabelClientesActionPerformed
+    }//GEN-LAST:event_jButtonlClientesActionPerformed
 
     private void jButtonPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPedidosActionPerformed
         try {
@@ -221,8 +219,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFinanceiro;
     private javax.swing.JButton jButtonPedidos;
     private javax.swing.JButton jButtonProdutos;
+    private javax.swing.JButton jButtonlClientes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton jLabelClientes;
     private javax.swing.JLabel jLabelMenuPrincipalFundo;
     private javax.swing.JLabel jLabelPedidos;
     // End of variables declaration//GEN-END:variables

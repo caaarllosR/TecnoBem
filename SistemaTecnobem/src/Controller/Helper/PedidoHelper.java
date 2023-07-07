@@ -6,7 +6,6 @@ package Controller.Helper;
 
 import Model.Pedido;
 import Model.Cliente;
-import Model.Produto;
 import View.CadastroPedido;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -25,7 +24,7 @@ public class PedidoHelper implements IHelper {
         this.view = view;
     }
 
-    public void preencherTabela(ArrayList<Pedido> pedidos) {
+    public void preencherJTable(ArrayList<Pedido> pedidos) {
         
         DefaultTableModel tableModel = (DefaultTableModel) view.getTablePedidos().getModel();
         tableModel.setNumRows(0);
@@ -90,15 +89,36 @@ public class PedidoHelper implements IHelper {
         return pedido;
     }
     
-    public void obterTextTabela(JTable TablePedidos) {
+    public void obterIdLinhaJTable(JTable TablePedidos) {
 
         DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
         int row = TablePedidos.getSelectedRow();
         
+        
         view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
+    }
+    
+    public Pedido obterCamposJTable(JTable tablePedidos) {
+
+        DefaultTableModel tableModel = (DefaultTableModel) tablePedidos.getModel();
+        int row = tablePedidos.getSelectedRow();
+        
+        String id = tableModel.getValueAt(row, 0).toString();
+        String cliente = tableModel.getValueAt(row, 1).toString();
+        String TSO = tableModel.getValueAt(row, 2).toString();
+        String produto = tableModel.getValueAt(row, 3).toString();
+        String OD = tableModel.getValueAt(row, 4).toString();
+        String OE = tableModel.getValueAt(row, 5).toString();
+        String valor = tableModel.getValueAt(row, 6).toString();
+        String dataEntrada = tableModel.getValueAt(row, 7).toString();
+        String previsaoDataSaida = tableModel.getValueAt(row, 8).toString();
+        String perda = tableModel.getValueAt(row, 9).toString();
+        String pago = tableModel.getValueAt(row, 11).toString();
+
+        view.getTextId().setText(id);
         
         int comboSize = view.getJComboBoxCliente().getItemCount();
-        String nomeCliente = tableModel.getValueAt(row, 1).toString();
+        String nomeCliente = cliente;
         
         for (int i = 0; i < comboSize; i++ ) {
             if (view.getJComboBoxCliente().getItemAt(i).equals(nomeCliente)) {
@@ -106,16 +126,18 @@ public class PedidoHelper implements IHelper {
             }
         }
 
-        view.getTextTSO().setText(tableModel.getValueAt(row, 2).toString());
-        view.getTextProduto().setText(tableModel.getValueAt(row, 3).toString());
-        view.getTextOD().setText(tableModel.getValueAt(row, 4).toString());
-        view.getTextOE().setText(tableModel.getValueAt(row, 5).toString());
-        view.getTextValor().setText(tableModel.getValueAt(row, 6).toString());
-        view.getTextDataEntrada().setText(tableModel.getValueAt(row, 7).toString());
-        view.getTextPrevisaoDataSaida().setText(tableModel.getValueAt(row, 8).toString());
-        view.getTextPerda().setText(tableModel.getValueAt(row, 9).toString());
+        view.getTextTSO().setText(TSO);
+        view.getTextProduto().setText(produto);
+        view.getTextOD().setText(OD);
+        view.getTextOE().setText(OE);
+        view.getTextValor().setText(valor);
+        view.getTextDataEntrada().setText(dataEntrada);
+        view.getTextPrevisaoDataSaida().setText(previsaoDataSaida);
+        view.getTextPerda().setText(perda);
         view.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
-        view.getCheckBoxPago().setSelected(!tableModel.getValueAt(row, 11).toString().equals("SIM") ? false : true);
+        view.getCheckBoxPago().setSelected(!pago.equals("SIM") ? false : true);
+        
+        return new Pedido(Integer.parseInt(id),cliente,TSO,produto,OD,OE,valor,dataEntrada,previsaoDataSaida,perda,pago);
     }
 
     @Override
