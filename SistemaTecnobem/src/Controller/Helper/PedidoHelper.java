@@ -18,15 +18,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PedidoHelper implements IHelper {
     
-    private final CadastroPedido view;
+    private final CadastroPedido viewCadastroPedido;
 
     public PedidoHelper(CadastroPedido view) {
-        this.view = view;
+        this.viewCadastroPedido = view;
     }
 
     public void preencherJTable(ArrayList<Pedido> pedidos) {
         
-        DefaultTableModel tableModel = (DefaultTableModel) view.getTablePedidos().getModel();
+        
+        DefaultTableModel tableModel = (DefaultTableModel) viewCadastroPedido.getTablePedidos().getModel();
         tableModel.setNumRows(0);
         
         for (Pedido pedido : pedidos) {
@@ -35,7 +36,7 @@ public class PedidoHelper implements IHelper {
                 pedido.getId(),
                 pedido.getCliente(),
                 pedido.getTSO(),
-                pedido.getServico(),
+                pedido.getProduto(),
                 pedido.getOD(),
                 pedido.getOE(),
                 pedido.getValor(),
@@ -52,7 +53,7 @@ public class PedidoHelper implements IHelper {
 
     public void preencheComboClientes(ArrayList<Cliente> clientes) {
 
-        DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxCliente().getModel();
+        DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) viewCadastroPedido.getJComboBoxCliente().getModel();
         
         for (Cliente cliente : clientes) {
             comboBoxModel.addElement(cliente.getNome());
@@ -62,29 +63,30 @@ public class PedidoHelper implements IHelper {
 
     public String obterCliente() {
 
-        return (String) view.getJComboBoxCliente().getSelectedItem();
+        return (String) viewCadastroPedido.getJComboBoxCliente().getSelectedItem();
     }
         
     public void setarValor(float valor) {
-        view.getTextValor().setText(valor+"");
+        viewCadastroPedido.getTextValor().setText(valor+"");
     }
 
     @Override
     public Pedido obterModelo() {
 
-        int    id = view.getTextId().getText().equals("") ? 0 : Integer.parseInt(view.getTextId().getText());
-        String TSO = view.getTextTSO().getText();
+        int    id = viewCadastroPedido.getTextId().getText().equals("") ? 0 : Integer.parseInt(viewCadastroPedido.getTextId().getText());
+        String TSO = viewCadastroPedido.getTextTSO().getText();
         String cliente = obterCliente();
-        String servico = view.getTextProduto().getText();
-        String OD = view.getTextOD().getText();
-        String OE = view.getTextOE().getText();
-        String valor = view.getTextValor().getText();
-        String dataEntrada = view.getTextDataEntrada().getText();
-        String previsaoDataSaida = view.getTextPrevisaoDataSaida().getText();
-        String perda = view.getTextPerda().getText();
-        String observacao = view.getTextObservacao().getText();
-        String pago = view.getCheckBoxPago().isSelected() ? "SIM" : "NÂO";
-        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao, pago);
+        String servico = viewCadastroPedido.getTextProduto().getText();
+        String OD = viewCadastroPedido.getTextOD().getText();
+        String OE = viewCadastroPedido.getTextOE().getText();
+        String valor = viewCadastroPedido.getTextValor().getText();
+        String dataEntrada = viewCadastroPedido.getTextDataEntrada().getText();
+        String previsaoDataSaida = viewCadastroPedido.getTextPrevisaoDataSaida().getText();
+        String perda = viewCadastroPedido.getTextPerda().getText();
+        String observacao = viewCadastroPedido.getTextObservacao().getText();
+        String anexo = viewCadastroPedido.getTextAnexo().getText();
+        String pago = viewCadastroPedido.getCheckBoxPago().isSelected() ? "SIM" : "NÂO";
+        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao, anexo, pago);
         
         return pedido;
     }
@@ -95,7 +97,7 @@ public class PedidoHelper implements IHelper {
         int row = TablePedidos.getSelectedRow();
         
         
-        view.getTextId().setText(tableModel.getValueAt(row, 0).toString());
+        viewCadastroPedido.getTextId().setText(tableModel.getValueAt(row, 0).toString());
     }
     
     public Pedido obterCamposJTable(JTable tablePedidos) {
@@ -113,29 +115,29 @@ public class PedidoHelper implements IHelper {
         String dataEntrada = tableModel.getValueAt(row, 7).toString();
         String previsaoDataSaida = tableModel.getValueAt(row, 8).toString();
         String perda = tableModel.getValueAt(row, 9).toString();
-        String pago = tableModel.getValueAt(row, 11).toString();
+        String pago = tableModel.getValueAt(row, 12).toString();
 
-        view.getTextId().setText(id);
+        viewCadastroPedido.getTextId().setText(id);
         
-        int comboSize = view.getJComboBoxCliente().getItemCount();
+        int comboSize = viewCadastroPedido.getJComboBoxCliente().getItemCount();
         String nomeCliente = cliente;
         
         for (int i = 0; i < comboSize; i++ ) {
-            if (view.getJComboBoxCliente().getItemAt(i).equals(nomeCliente)) {
-                view.getJComboBoxCliente().setSelectedIndex(i);
+            if (viewCadastroPedido.getJComboBoxCliente().getItemAt(i).equals(nomeCliente)) {
+                viewCadastroPedido.getJComboBoxCliente().setSelectedIndex(i);
             }
         }
 
-        view.getTextTSO().setText(TSO);
-        view.getTextProduto().setText(produto);
-        view.getTextOD().setText(OD);
-        view.getTextOE().setText(OE);
-        view.getTextValor().setText(valor);
-        view.getTextDataEntrada().setText(dataEntrada);
-        view.getTextPrevisaoDataSaida().setText(previsaoDataSaida);
-        view.getTextPerda().setText(perda);
-        view.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
-        view.getCheckBoxPago().setSelected(!pago.equals("SIM") ? false : true);
+        viewCadastroPedido.getTextTSO().setText(TSO);
+        viewCadastroPedido.getTextProduto().setText(produto);
+        viewCadastroPedido.getTextOD().setText(OD);
+        viewCadastroPedido.getTextOE().setText(OE);
+        viewCadastroPedido.getTextValor().setText(valor);
+        viewCadastroPedido.getTextDataEntrada().setText(dataEntrada);
+        viewCadastroPedido.getTextPrevisaoDataSaida().setText(previsaoDataSaida);
+        viewCadastroPedido.getTextPerda().setText(perda);
+        viewCadastroPedido.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
+        viewCadastroPedido.getCheckBoxPago().setSelected(!pago.equals("SIM") ? false : true);
         
         return new Pedido(Integer.parseInt(id),cliente,TSO,produto,OD,OE,valor,dataEntrada,previsaoDataSaida,perda,pago);
     }
@@ -143,19 +145,19 @@ public class PedidoHelper implements IHelper {
     @Override
     public void limparTela() {
 
-        view.getTextId().setText("");
-        view.getTextDataEntrada().setText("");
-        view.getTextTSO().setText("");
-        view.getTextProduto().setText("");
-        view.getTextOD().setText("");
-        view.getTextOE().setText("");
-        view.getTextValor().setText("");
-        view.getTextDataEntrada().setText("");
-        view.getTextPrevisaoDataSaida().setText("");
-        view.getTextPerda().setText("");
-        view.getTextObservacao().setText("");
-        view.getTextAnexo().setText("");
-        view.getCheckBoxPago().setSelected(false);
+        viewCadastroPedido.getTextId().setText("");
+        viewCadastroPedido.getTextDataEntrada().setText("");
+        viewCadastroPedido.getTextTSO().setText("");
+        viewCadastroPedido.getTextProduto().setText("");
+        viewCadastroPedido.getTextOD().setText("");
+        viewCadastroPedido.getTextOE().setText("");
+        viewCadastroPedido.getTextValor().setText("");
+        viewCadastroPedido.getTextDataEntrada().setText("");
+        viewCadastroPedido.getTextPrevisaoDataSaida().setText("");
+        viewCadastroPedido.getTextPerda().setText("");
+        viewCadastroPedido.getTextObservacao().setText("");
+        viewCadastroPedido.getTextAnexo().setText("");
+        viewCadastroPedido.getCheckBoxPago().setSelected(false);
     }
     
 }

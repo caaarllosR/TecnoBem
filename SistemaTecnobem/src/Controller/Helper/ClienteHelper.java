@@ -5,10 +5,7 @@
 package Controller.Helper;
 
 import Model.Cliente;
-import Model.Pedido;
-import Model.Produto;
 import View.CadastroCliente;
-import View.CadastroPedido;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

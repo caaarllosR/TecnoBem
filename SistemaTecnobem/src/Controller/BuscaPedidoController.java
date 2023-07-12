@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controller;
-import Controller.Helper.PedidoHelper;
+import Controller.Helper.BuscaPedidoHelper;
 import Model.Pedido;
 import Model.Cliente;
 import Model.DAO.Banco;
 import Model.DAO.PedidoDAO;
 import Model.DAO.ClienteDAO;
+import View.BuscaPedido;
 import View.CadastroPedido;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,22 +25,21 @@ import javax.swing.JTable;
  *
  * @author X
  */
-public class PedidoController {
+public class BuscaPedidoController {
     
-    private final CadastroPedido viewCadastroPedido;
-    private final PedidoHelper helper;
+    private final BuscaPedido viewBuscaPedido;
+    private final BuscaPedidoHelper helper;
 
-    public PedidoController() {
-        this.viewCadastroPedido = null;
+    public BuscaPedidoController() {
+        this.viewBuscaPedido = null;
         this.helper = null;
     }
         
-    public PedidoController(CadastroPedido view) {
-        this.viewCadastroPedido = view;
-        this.helper = new PedidoHelper(view);
+    public BuscaPedidoController(BuscaPedido view) {
+        this.viewBuscaPedido = view;
+        this.helper = new BuscaPedidoHelper(view);
     }
     
-
     
     public void carregaTabela(){
         
@@ -55,12 +55,6 @@ public class PedidoController {
         pedidosDAO.update(pedido);     
     }
     
-    public void carregaJComboClientes() {
-        
-        ClienteDAO clienteDAO = new ClienteDAO();
-        ArrayList<Cliente> clientes = clienteDAO.selectAll();
-        helper.preencheComboClientes(clientes);
-    }
     
     public Pedido preencheCamposTela(JTable tablePedidos) {
         
@@ -87,7 +81,7 @@ public class PedidoController {
         
         
         try (BufferedWriter w = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
-            w.write("Id;Cliente;TSO;Produto;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo;Pago\n");
+            w.write("IdNota;Cliente;TSO;Produto;OD;OE;Valor;DataEntrega;PrevisaoSaida;Perda;Observação;Anexo;Pago\n");
             for (Pedido pedido : Banco.pedidos) {
                 w.write(pedido.getId()+";"+pedido.getCliente()+";"+pedido.getTSO()+";"+pedido.getProduto()+";"+pedido.getOD()+";"+pedido.getOE()+";"+pedido.getValor()+";"+pedido.getDataEntrega()+";"+pedido.getPrevisaoDataSaida()+";"+pedido.getPerda()+";"+pedido.getObservacao()+";;"+pedido.getPago());
                 w.newLine();

@@ -97,8 +97,8 @@ public class CadastroPedido extends javax.swing.JFrame {
 
         LabelProduto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelProduto.setForeground(new java.awt.Color(255, 255, 255));
-        LabelProduto.setText("CodigoProduto");
-        getContentPane().add(LabelProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        LabelProduto.setText("   Produto");
+        getContentPane().add(LabelProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 190, 60, -1));
 
         LabelValor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelValor.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,7 +108,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         LabelData.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelData.setForeground(new java.awt.Color(255, 255, 255));
         LabelData.setText("Data Entrada");
-        getContentPane().add(LabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        getContentPane().add(LabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 350, -1, -1));
 
         LabelTSO.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelTSO.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,18 +117,18 @@ public class CadastroPedido extends javax.swing.JFrame {
 
         LabelAnexo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelAnexo.setForeground(new java.awt.Color(255, 255, 255));
-        LabelAnexo.setText("Anexo");
-        getContentPane().add(LabelAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, -1, 20));
+        LabelAnexo.setText(" Anexo");
+        getContentPane().add(LabelAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 460, 50, 20));
 
         LabelData2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelData2.setForeground(new java.awt.Color(255, 255, 255));
         LabelData2.setText("Previsão de Saida");
-        getContentPane().add(LabelData2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, 20));
+        getContentPane().add(LabelData2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 380, -1, 30));
 
         LabelData3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelData3.setForeground(new java.awt.Color(255, 255, 255));
         LabelData3.setText("Perda");
-        getContentPane().add(LabelData3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, 20));
+        getContentPane().add(LabelData3, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 420, 40, 20));
 
         LabelObservacao.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         LabelObservacao.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +172,7 @@ public class CadastroPedido extends javax.swing.JFrame {
                 TextAnexoActionPerformed(evt);
             }
         });
-        getContentPane().add(TextAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 40, 30));
+        getContentPane().add(TextAnexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 40, 20));
 
         TextObservacao.setColumns(20);
         TextObservacao.setRows(5);
@@ -207,7 +207,7 @@ public class CadastroPedido extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Cliente", "TSO", "Código do Produto", "OD", "OE", "Valor", "Data de Entrada", "Previsão de Saida", "Perda", "Observação", "Anexo", "Pago"
+                "IdNota", "Cliente", "TSO", "Produto", "OD", "OE", "Valor", "Data de Entrada", "Previsão de Saida", "Perda", "Observação", "Anexo", "Pago"
             }
         ) {
             Class[] types = new Class [] {
@@ -595,5 +595,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         return jCheckBoxPago;
     }
     
-    
+    public void setCheckBoxPago( boolean pago) {
+        this.jCheckBoxPago.setSelected(pago);
+    }
 }

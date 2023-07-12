@@ -30,7 +30,7 @@ public class Banco {
     
     public static ArrayList<Usuario> usuarios;
     public static ArrayList<Cliente> clientes;
-    public static ArrayList<Produto> servicos;
+    public static ArrayList<Produto> produtos;
     public static ArrayList<Pedido>  pedidos;
     
     
@@ -117,7 +117,7 @@ public class Banco {
             int id = 0;
             String TSO = "";
             String cliente = "";
-            String servico = "";
+            String produto = "";
             String OD = "";
             String OE = "";
             String valor = "";
@@ -125,6 +125,7 @@ public class Banco {
             String previsaoDataSaida = "";
             String perda = "";
             String observacao = "";
+            String anexo = "";
             String pago = "";
 
 
@@ -140,7 +141,7 @@ public class Banco {
                     id = Integer.parseInt(dadosPedido[0]);
                     cliente = dadosPedido.length >= 2 ? dadosPedido[1] : "";
                     TSO = dadosPedido.length >= 3 ? dadosPedido[2] : "";
-                    servico = dadosPedido.length >= 4 ? dadosPedido[3] : "";
+                    produto = dadosPedido.length >= 4 ? dadosPedido[3] : "";
                     OD = dadosPedido.length >= 5 ? dadosPedido[4] : "";                                
                     OE = dadosPedido.length >= 6 ? dadosPedido[5] : "";                                                
                     valor = dadosPedido.length >= 7 ? dadosPedido[6] : "";
@@ -148,9 +149,10 @@ public class Banco {
                     previsaoDataSaida = dadosPedido.length >= 9 ? dadosPedido[8] : "";
                     perda = dadosPedido.length >= 10 ? dadosPedido[9] : "";    
                     observacao = dadosPedido.length >= 11 ? dadosPedido[10] : "";
-                    pago = dadosPedido.length == 12 ? dadosPedido[11] : "";
+                    anexo = dadosPedido.length >= 12 ? dadosPedido[12] : "";
+                    pago = dadosPedido.length == 13 ? dadosPedido[12] : "";
 
-                    pedidos.add(new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao, pago));
+                    pedidos.add(new Pedido(id, cliente, TSO, produto, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao, anexo, pago));
 
                 } 
 

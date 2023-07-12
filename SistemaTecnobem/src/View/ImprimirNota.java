@@ -20,7 +20,11 @@ public class ImprimirNota extends javax.swing.JFrame {
     public ImprimirNota() {
                 
         initComponents();
-        System.out.println(GerenciadorDepedidos.getInstance().getPedido().getCliente());
+        jLabelCliente.setText(GerenciadorDepedidos.getInstance().getPedido().getCliente());
+        jLabelTSO.setText(GerenciadorDepedidos.getInstance().getPedido().getTSO());
+        jLabelProduto.setText(GerenciadorDepedidos.getInstance().getPedido().getProduto());
+        jLabelValor.setText(GerenciadorDepedidos.getInstance().getPedido().getValor());
+        jLabelTotal.setText(GerenciadorDepedidos.getInstance().getPedido().getValor());
         impressoraController.printJFrame();
 
     }
@@ -34,18 +38,53 @@ public class ImprimirNota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelCliente = new javax.swing.JLabel();
+        jLabelCod = new javax.swing.JLabel();
+        jLabelTSO = new javax.swing.JLabel();
+        jLabelProduto = new javax.swing.JLabel();
+        jLabelValor = new javax.swing.JLabel();
+        jLabelTotal = new javax.swing.JLabel();
+        jLabelDataDia = new javax.swing.JLabel();
+        jLabelDataMes = new javax.swing.JLabel();
+        jLabelDataAno = new javax.swing.JLabel();
+        jLabelLayoutMain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Nota.png"))); // NOI18N
-        jLabel1.setName(""); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 540));
+        jLabelCliente.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 138, 480, 30));
 
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
+        jLabelCod.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 138, 190, 30));
+
+        jLabelTSO.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelTSO, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 234, 246, 30));
+
+        jLabelProduto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 233, 570, 30));
+
+        jLabelValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(832, 233, 204, 30));
+
+        jLabelTotal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 489, 138, 30));
+
+        jLabelDataDia.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDataDia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabelDataDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 490, 30, 30));
+
+        jLabelDataMes.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDataMes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabelDataMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(856, 490, 30, 30));
+
+        jLabelDataAno.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelDataAno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabelDataAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(896, 490, 58, 30));
+
+        jLabelLayoutMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Nota.png"))); // NOI18N
+        jLabelLayoutMain.setName(""); // NOI18N
+        getContentPane().add(jLabelLayoutMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,7 +124,15 @@ public class ImprimirNota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelCliente;
+    private javax.swing.JLabel jLabelCod;
+    private javax.swing.JLabel jLabelDataAno;
+    private javax.swing.JLabel jLabelDataDia;
+    private javax.swing.JLabel jLabelDataMes;
+    private javax.swing.JLabel jLabelLayoutMain;
+    private javax.swing.JLabel jLabelProduto;
+    private javax.swing.JLabel jLabelTSO;
+    private javax.swing.JLabel jLabelTotal;
+    private javax.swing.JLabel jLabelValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,7 +20,7 @@ public class ServicoDAO {
      * @param servico exige que seja passado um objeto do tipo servico
      */
     public void insert(Produto servico){
-        Banco.servicos.add(servico);
+        Banco.produtos.add(servico);
     }
     
     /**
@@ -30,9 +30,9 @@ public class ServicoDAO {
      */
     public boolean update(Produto servico){
         
-        for (int i = 0; i < Banco.servicos.size(); i++) {
-            if(idSaoIguais(Banco.servicos.get(i),servico)){
-                Banco.servicos.set(i, servico);
+        for (int i = 0; i < Banco.produtos.size(); i++) {
+            if(idSaoIguais(Banco.produtos.get(i),servico)){
+                Banco.produtos.set(i, servico);
                 return true;
             }
         }
@@ -46,9 +46,9 @@ public class ServicoDAO {
      * @return 
      */
     public boolean delete(Produto servico){
-        for (Produto servicoLista : Banco.servicos) {
+        for (Produto servicoLista : Banco.produtos) {
             if(idSaoIguais(servicoLista,servico)){
-                Banco.servicos.remove(servicoLista);
+                Banco.produtos.remove(servicoLista);
                 return true;
             }
         }
@@ -60,7 +60,7 @@ public class ServicoDAO {
      * @return uma lista com todos os registros do banco
      */
     public ArrayList<Produto> selectAll(){
-        return Banco.servicos;
+        return Banco.produtos;
     }
     
     /**

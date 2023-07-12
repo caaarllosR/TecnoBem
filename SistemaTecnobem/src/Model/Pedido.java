@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Pedido {
     
-    private int id;
+    private int Id;
     private String cliente;
     private String TSO;
     private String produto;
@@ -27,10 +27,11 @@ public class Pedido {
     private String previsaoDataSaida;
     private String perda;
     private String observacao;
+    private String anexo;
     private String pago;
     
     public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String pago) {
-        this.id = id;
+        this.Id = id;
         this.cliente = cliente;
         this.TSO = TSO;
         this.produto = produto;
@@ -49,19 +50,20 @@ public class Pedido {
     }
     
     
-    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao, String pago) {
+    public Pedido(int id, String cliente, String TSO, String produto, String OD, String OE, String valor, String dataEntrada, String previsaoDataSaida, String perda, String observacao, String anexo, String pago) {
         
         this(id, cliente, TSO, produto, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, pago);
+        this.anexo = anexo;
         this.observacao = observacao;
     }
         
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getCliente() {
@@ -133,7 +135,7 @@ public class Pedido {
         this.TSO = TSO;
     }
 
-    public String getServico() {
+    public String getProduto() {
         return produto;
     }
 
