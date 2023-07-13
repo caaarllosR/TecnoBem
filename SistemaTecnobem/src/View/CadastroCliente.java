@@ -170,7 +170,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Cliente", "CpfCnpj", "Endereço", "CEP", "Telefone1", "Telefone2", "Email", "Observação", "Vencimento", "Limite", "LimiteUtilizado"
+                "IdCliente", "Cliente", "CpfCnpj", "Endereço", "CEP", "Telefone1", "Telefone2", "Email", "Observação", "Vencimento", "Limite", "LimiteUtilizado"
             }
         ) {
             boolean[] canEdit = new boolean [] {

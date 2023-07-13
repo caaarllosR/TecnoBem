@@ -8,23 +8,34 @@ package Model;
  *
  * @author X
  */
-public class GerenciadorDepedidos {
+public class GerenciadorDePedidos {
     
-    private static final GerenciadorDepedidos INSTANCE = new GerenciadorDepedidos();
-    private Pedido pedido;
-
-    private GerenciadorDepedidos() {
+    private static final GerenciadorDePedidos INSTANCE = new GerenciadorDePedidos();
+    private Pedido pedidos;
+    private int ultimoIndice;
+            
+    private GerenciadorDePedidos() {
     }
 
-    public static GerenciadorDepedidos getInstance() {
+    public static GerenciadorDePedidos getInstance() {
       return INSTANCE;
     }
 
     public Pedido getPedido() {
-          return pedido;
+          return pedidos;
     }
+    
+    public int getIndice() {
+          return ultimoIndice;
+    }
+        
+    public void setPedido(Pedido pedidos) {
+          this.pedidos = pedidos;
+    }
+    
+    public void setIndice(int ultimoIndice) {
+          this.ultimoIndice = ultimoIndice;
+    }
+        
 
-    public void setPedido(Pedido pedido) {
-          this.pedido = pedido;
-    }
 }

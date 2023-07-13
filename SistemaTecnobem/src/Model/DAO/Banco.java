@@ -7,20 +7,16 @@ package Model.DAO;
 
 import Model.Pedido;
 import Model.Cliente;
+import Model.Nota;
 import Model.Produto;
 import Model.Usuario;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  *
@@ -31,7 +27,8 @@ public class Banco {
     public static ArrayList<Usuario> usuarios;
     public static ArrayList<Cliente> clientes;
     public static ArrayList<Produto> produtos;
-    public static ArrayList<Pedido>  pedidos;
+    public static ArrayList<Pedido> pedidos;
+    public static ArrayList<Nota> notas;
     
     
     public static void carregaUsuarios() throws IOException{
@@ -108,7 +105,7 @@ public class Banco {
         //Instancia os Objetos
         pedidos = new ArrayList<Pedido>();
         
-        // carregamento do arquivo de pedidos para a base de dados       
+        //carregamento do arquivo de pedidos para a base de dados       
         File filePedidos = new File("Base/Pedidos.csv");
         
         if (filePedidos.exists()) {
@@ -149,10 +146,74 @@ public class Banco {
                     previsaoDataSaida = dadosPedido.length >= 9 ? dadosPedido[8] : "";
                     perda = dadosPedido.length >= 10 ? dadosPedido[9] : "";    
                     observacao = dadosPedido.length >= 11 ? dadosPedido[10] : "";
-                    anexo = dadosPedido.length >= 12 ? dadosPedido[12] : "";
+                    anexo = dadosPedido.length >= 12 ? dadosPedido[11] : "";
                     pago = dadosPedido.length == 13 ? dadosPedido[12] : "";
 
                     pedidos.add(new Pedido(id, cliente, TSO, produto, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao, anexo, pago));
+
+                } 
+
+                br.close();
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+
+        }
+    }
+    
+    public static void carregaNotas() throws IOException{
+         
+        //Instancia os Objetos
+        notas = new ArrayList<Nota>();
+        
+        //carregamento do arquivo de pedidos para a base de dados       
+        File filePedidos = new File("Base/Notas.csv");
+        
+        if (filePedidos.exists()) {
+            Path pathPedidos = Paths.get(filePedidos.getAbsolutePath());
+
+            int idNota = 0;
+            int idPedido = 0;
+            String TSO = "";
+            String cliente = "";
+            String produto = "";
+            String OD = "";
+            String OE = "";
+            String valor = "";
+            String dataEntrega = "";
+            String previsaoDataSaida = "";
+            String perda = "";
+            String observacao = "";
+            String anexo = "";
+            String pago = "";
+
+
+
+            try(BufferedReader br = Files.newBufferedReader(pathPedidos)){
+
+                br.readLine();
+
+                while(br.ready()){
+
+                    String[] dadosNota = br.readLine().split(";");             
+
+                    idNota = Integer.parseInt(dadosNota[0]);
+                    idPedido = Integer.parseInt(dadosNota[0]);
+                    cliente = dadosNota.length >= 3 ? dadosNota[2] : "";
+                    TSO = dadosNota.length >= 4 ? dadosNota[3] : "";
+                    produto = dadosNota.length >= 5 ? dadosNota[4] : "";
+                    OD = dadosNota.length >= 6 ? dadosNota[5] : "";                                
+                    OE = dadosNota.length >= 7 ? dadosNota[6] : "";                                                
+                    valor = dadosNota.length >= 8 ? dadosNota[7] : "";
+                    dataEntrega = dadosNota.length >= 9 ? dadosNota[8] : "";
+                    previsaoDataSaida = dadosNota.length >= 10 ? dadosNota[9] : "";
+                    perda = dadosNota.length >= 11 ? dadosNota[10] : "";    
+                    observacao = dadosNota.length >= 12 ? dadosNota[11] : "";
+                    anexo = dadosNota.length >= 13 ? dadosNota[12] : "";
+                    pago = dadosNota.length == 14 ? dadosNota[13] : "";
+
+                    notas.add(new Nota(idNota, idPedido, cliente, TSO, produto, OD, OE, valor, dataEntrega, previsaoDataSaida, perda, observacao, anexo, pago));
 
                 } 
 

@@ -4,7 +4,7 @@
  */
 package Controller.Helper;
 
-import Model.Pedido;
+import Model.Nota;
 import Model.Cliente;
 import Model.GerenciadorDePedidos;
 import View.CadastroPedido;
@@ -17,49 +17,43 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author X
  */
-public class PedidoHelper implements IHelper {
+public class NotaHelper implements IHelper {
     
     private final CadastroPedido viewCadastroPedido;
 
-    public PedidoHelper(CadastroPedido view) {
+    public NotaHelper(CadastroPedido view) {
         this.viewCadastroPedido = view;
     }
 
-    public void preencherJTable(ArrayList<Pedido> pedidos) {
+    public void preencherJTable(ArrayList<Nota> notas) {
         
         DefaultTableModel tableModel = (DefaultTableModel) viewCadastroPedido.getTablePedidos().getModel();
         tableModel.setNumRows(0);
         
         int ultimoId = GerenciadorDePedidos.getInstance().getIndice();
-        int size = pedidos.size();
+        int size = notas.size();
         
         for (int i = ultimoId; i < size; i++) {
             
             tableModel.addRow(new Object[]{
-            pedidos.get(i).getId(),
-            pedidos.get(i).getCliente(),
-            pedidos.get(i).getTSO(),
-            pedidos.get(i).getProduto(),
-            pedidos.get(i).getOD(),
-            pedidos.get(i).getOE(),
-            pedidos.get(i).getValor(),
-            pedidos.get(i).getDataEntrega(),
-            pedidos.get(i).getPrevisaoDataSaida(),
-            pedidos.get(i).getPerda(),
-            pedidos.get(i).getObservacao(),
+            notas.get(i).getId(),
+            notas.get(i).getCliente(),
+            notas.get(i).getTSO(),
+            notas.get(i).getProduto(),
+            notas.get(i).getOD(),
+            notas.get(i).getOE(),
+            notas.get(i).getValor(),
+            notas.get(i).getDataEntrega(),
+            notas.get(i).getPrevisaoDataSaida(),
+            notas.get(i).getPerda(),
+            notas.get(i).getObservacao(),
             "",   
-            pedidos.get(i).getPago()
+            notas.get(i).getPago()
             });
         }
         
     }
 
-    public void limpaJTable() {
-        
-        DefaultTableModel tableModel = (DefaultTableModel) viewCadastroPedido.getTablePedidos().getModel();
-        tableModel.setNumRows(0);
-    }
-    
     public void preencheComboClientes(ArrayList<Cliente> clientes) {
 
         DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) viewCadastroPedido.getJComboBoxCliente().getModel();
@@ -75,11 +69,15 @@ public class PedidoHelper implements IHelper {
         return (String) viewCadastroPedido.getJComboBoxCliente().getSelectedItem();
     }
         
+    public void setarValor(float valor) {
+        viewCadastroPedido.getTextValor().setText(valor+"");
+    }
 
     @Override
-    public Pedido obterModelo() {
+    public Nota obterModelo() {
 
-        int    id = viewCadastroPedido.getTextId().getText().equals("") ? 0 : Integer.parseInt(viewCadastroPedido.getTextId().getText());
+        int    idNota = viewCadastroPedido.getTextId().getText().equals("") ? 0 : Integer.parseInt(viewCadastroPedido.getTextId().getText());
+        int    idPedido = viewCadastroPedido.getTextId().getText().equals("") ? 0 : Integer.parseInt(viewCadastroPedido.getTextId().getText());
         String TSO = viewCadastroPedido.getTextTSO().getText();
         String cliente = obterCliente();
         String servico = viewCadastroPedido.getTextProduto().getText();
@@ -92,23 +90,23 @@ public class PedidoHelper implements IHelper {
         String observacao = viewCadastroPedido.getTextObservacao().getText();
         String anexo = viewCadastroPedido.getTextAnexo().getText();
         String pago = viewCadastroPedido.getCheckBoxPago().isSelected() ? "SIM" : "NÂO";
-        Pedido pedido = new Pedido(id, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao, anexo, pago);
+        Nota nota = new Nota(idNota, idPedido, cliente, TSO, servico, OD, OE, valor, dataEntrada, previsaoDataSaida, perda, observacao, anexo, pago);
         
-        return pedido;
+        return nota;
     }
     
-    public void obterIdLinhaJTable(JTable TablePedidos) {
+    public void obterIdLinhaJTable(JTable TableNotas) {
 
-        DefaultTableModel tableModel = (DefaultTableModel) TablePedidos.getModel();
-        int row = TablePedidos.getSelectedRow();
+        DefaultTableModel tableModel = (DefaultTableModel) TableNotas.getModel();
+        int row = TableNotas.getSelectedRow();
                 
         viewCadastroPedido.getTextId().setText(tableModel.getValueAt(row, 0).toString());
     }
     
-    public Pedido obterCamposJTable(JTable tablePedidos) {
+    public Nota obterCamposJTable(JTable tableNotas) {
 
-        DefaultTableModel tableModel = (DefaultTableModel) tablePedidos.getModel();
-        int row = tablePedidos.getSelectedRow();
+        DefaultTableModel tableModel = (DefaultTableModel) tableNotas.getModel();
+        int row = tableNotas.getSelectedRow();
         
         String id = tableModel.getValueAt(row, 0).toString();
         String cliente = tableModel.getValueAt(row, 1).toString();
@@ -144,7 +142,7 @@ public class PedidoHelper implements IHelper {
         viewCadastroPedido.getTextObservacao().setText(tableModel.getValueAt(row, 10).toString());
         viewCadastroPedido.getCheckBoxPago().setSelected(!pago.equals("SIM") ? false : true);
         
-        return new Pedido(Integer.parseInt(id),cliente,TSO,produto,OD,OE,valor,dataEntrada,previsaoDataSaida,perda,pago);
+        return new Nota(0, Integer.parseInt(id),cliente,TSO,produto,OD,OE,valor,dataEntrada,previsaoDataSaida,perda,pago);
     }
 
     @Override

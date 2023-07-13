@@ -137,7 +137,6 @@ public class BuscaPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBuscarActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
-        new ImprimirNota().setVisible(true);
         
     }//GEN-LAST:event_ButtonGerarNotaActionPerformed
 

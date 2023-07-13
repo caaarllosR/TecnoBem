@@ -7,7 +7,8 @@ package View;
 
 import Controller.PedidoController;
 import Model.DAO.Banco;
-import Model.GerenciadorDepedidos;
+import Model.GerenciadorDeNotas;
+import Model.GerenciadorDePedidos;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +34,11 @@ public class CadastroPedido extends javax.swing.JFrame {
         pedidoController = new PedidoController(this);
         Banco.carregaClientes();
         Banco.carregaPedidos();
+        Banco.carregaNotas();
+        
+        GerenciadorDePedidos.getInstance().setIndice(Banco.pedidos.size());
+        GerenciadorDeNotas.getInstance().setUltimoIndice(Banco.notas.size());
+
         iniciar();        
     }
 
@@ -62,7 +68,7 @@ public class CadastroPedido extends javax.swing.JFrame {
         TextAnexo = new javax.swing.JTextField();
         JScrollPaneObservacao = new javax.swing.JScrollPane();
         TextObservacao = new javax.swing.JTextArea();
-        ButtonAgendar = new javax.swing.JButton();
+        ButtonAdicionar = new javax.swing.JButton();
         ButtonGerarNota = new javax.swing.JButton();
         jScrollPanePedidos = new javax.swing.JScrollPane();
         tablePedidos = new javax.swing.JTable();
@@ -180,16 +186,16 @@ public class CadastroPedido extends javax.swing.JFrame {
 
         getContentPane().add(JScrollPaneObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 610, 120));
 
-        ButtonAgendar.setBackground(new java.awt.Color(60, 233, 106));
-        ButtonAgendar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        ButtonAgendar.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonAgendar.setText("Agendar");
-        ButtonAgendar.addActionListener(new java.awt.event.ActionListener() {
+        ButtonAdicionar.setBackground(new java.awt.Color(60, 233, 106));
+        ButtonAdicionar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        ButtonAdicionar.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonAdicionar.setText("Adicionar");
+        ButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgendarActionPerformed(evt);
+                ButtonAdicionarActionPerformed(evt);
             }
         });
-        getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 230, 50));
+        getContentPane().add(ButtonAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 230, 50));
 
         ButtonGerarNota.setBackground(new java.awt.Color(60, 233, 106));
         ButtonGerarNota.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -207,7 +213,7 @@ public class CadastroPedido extends javax.swing.JFrame {
 
             },
             new String [] {
-                "IdNota", "Cliente", "TSO", "Produto", "OD", "OE", "Valor", "Data de Entrada", "Previsão de Saida", "Perda", "Observação", "Anexo", "Pago"
+                "IdPedido", "Cliente", "TSO", "Produto", "OD", "OE", "Valor", "Data de Entrada", "Previsão de Saida", "Perda", "Observação", "Anexo", "Pago"
             }
         ) {
             Class[] types = new Class [] {
@@ -337,9 +343,9 @@ public class CadastroPedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgendarActionPerformed
-        this.pedidoController.agendar();
-    }//GEN-LAST:event_ButtonAgendarActionPerformed
+    private void ButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdicionarActionPerformed
+        this.pedidoController.adicionar();
+    }//GEN-LAST:event_ButtonAdicionarActionPerformed
 
     private void TextDataEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextDataEntradaActionPerformed
         // TODO add your handling code here:
@@ -378,17 +384,15 @@ public class CadastroPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPerdaActionPerformed
 
     private void ButtonGerarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonGerarNotaActionPerformed
-        new ImprimirNota().setVisible(true);
-        
+        this.pedidoController.gerarNota();
     }//GEN-LAST:event_ButtonGerarNotaActionPerformed
 
     private void JComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxClienteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_JComboBoxClienteActionPerformed
 
     private void tablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePedidosMouseClicked
-              
-        GerenciadorDepedidos.getInstance().setPedido(pedidoController.preencheCamposTela(tablePedidos));
+        GerenciadorDePedidos.getInstance().setPedido(pedidoController.preencheCamposTela(tablePedidos));
     }//GEN-LAST:event_tablePedidosMouseClicked
 
     private void TextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIdActionPerformed
@@ -397,7 +401,7 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     private void ButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLimparActionPerformed
         
-        pedidoController.limparText();
+        pedidoController.limparTexto();
     }//GEN-LAST:event_ButtonLimparActionPerformed
 
     private void TextValor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextValor1ActionPerformed
@@ -448,7 +452,7 @@ public class CadastroPedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonAgendar;
+    private javax.swing.JButton ButtonAdicionar;
     private javax.swing.JButton ButtonGerarNota;
     private javax.swing.JButton ButtonLimpar;
     private javax.swing.JComboBox<String> JComboBoxCliente;
@@ -487,7 +491,7 @@ public class CadastroPedido extends javax.swing.JFrame {
 
     private void iniciar() {
 
-        this.pedidoController.carregaTabela();
+        //this.pedidoController.carregaTabela();
         this.pedidoController.carregaJComboClientes();
     }
 
