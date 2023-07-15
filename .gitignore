@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/netbeans,java
-# Edit at https://www.toptal.com/developers/gitignore?templates=netbeans,java
+# Created by https://www.toptal.com/developers/gitignore/api/java,maven,netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,netbeans
 
 ### Java ###
 # Compiled class file
@@ -27,6 +27,25 @@
 hs_err_pid*
 replay_pid*
 
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse m2e generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -37,8 +56,4 @@ dist/
 nbdist/
 .nb-gradle/
 
-# End of https://www.toptal.com/developers/gitignore/api/netbeans,java
-
-# Base de dados
-Base/
-/SistemaTecnoBem/target/
+# End of https://www.toptal.com/developers/gitignore/api/java,maven,netbeans
