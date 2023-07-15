@@ -51,7 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelPedidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/pedido_icon.png"))); // NOI18N
+        jLabelPedidos.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\icons\\pedido_icon.png")); // NOI18N
         getContentPane().add(jLabelPedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, 70));
 
         jButtonPedidos.setBackground(new java.awt.Color(51, 153, 255));
@@ -119,7 +119,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 140, 100));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/cliente_icon.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\icons\\cliente_icon.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 90, 70));
 
         jButtonlClientes.setBackground(new java.awt.Color(51, 153, 255));
@@ -136,8 +136,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(jButtonlClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 140, 100));
 
         jLabelMenuPrincipalFundo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelMenuPrincipalFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/fundo-MenuPrincipal.jpg"))); // NOI18N
-        getContentPane().add(jLabelMenuPrincipalFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, -250, 1620, 1000));
+        jLabelMenuPrincipalFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\fundo-MenuPrincipal.jpg")); // NOI18N
+        getContentPane().add(jLabelMenuPrincipalFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, -230, 1620, 1000));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

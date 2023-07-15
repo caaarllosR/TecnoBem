@@ -293,11 +293,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         getContentPane().add(LabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
         LabelClientePainelFundo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LabelClientePainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Pedidos-PainelFundo.png"))); // NOI18N
+        LabelClientePainelFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\Pedidos-PainelFundo.png")); // NOI18N
         LabelClientePainelFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(LabelClientePainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -310, 1390, 1140));
 
-        LabelCadastroClienteFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/PedidosFundo.png"))); // NOI18N
+        LabelCadastroClienteFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\PedidosFundo.png")); // NOI18N
         LabelCadastroClienteFundo.setAutoscrolls(true);
         getContentPane().add(LabelCadastroClienteFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1300, 1050));
 

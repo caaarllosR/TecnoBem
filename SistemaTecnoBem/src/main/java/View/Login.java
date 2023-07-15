@@ -52,7 +52,6 @@ public class Login extends javax.swing.JFrame {
         LabelLoginFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(810, 700));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -98,11 +97,11 @@ public class Login extends javax.swing.JFrame {
 
         LabelPainelFundo.setBackground(new java.awt.Color(255, 255, 255));
         LabelPainelFundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/painel-login.png"))); // NOI18N
+        LabelPainelFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\painel-login.png")); // NOI18N
         LabelPainelFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(LabelPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 590, 520));
 
-        LabelLoginFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Logo.jpg"))); // NOI18N
+        LabelLoginFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\Logo.jpg")); // NOI18N
         LabelLoginFundo.setAutoscrolls(true);
         LabelLoginFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         LabelLoginFundo.setOpaque(true);
@@ -154,6 +153,7 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

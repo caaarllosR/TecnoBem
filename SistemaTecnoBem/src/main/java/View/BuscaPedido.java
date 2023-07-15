@@ -121,11 +121,11 @@ public class BuscaPedido extends javax.swing.JFrame {
         getContentPane().add(jScrollPanePedidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 1090, 480));
 
         LabelPedidoPainelFundo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        LabelPedidoPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/Pedidos-PainelFundo.png"))); // NOI18N
+        LabelPedidoPainelFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\Pedidos-PainelFundo.png")); // NOI18N
         LabelPedidoPainelFundo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(LabelPedidoPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -140, -1, 1000));
 
-        LabelAgendaFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/PedidosFundo.png"))); // NOI18N
+        LabelAgendaFundo.setIcon(new javax.swing.ImageIcon("D:\\Develop\\Java\\TECNOBEM\\SistemaTecnoBem\\src\\main\\java\\View\\imagens\\PedidosFundo.png")); // NOI18N
         LabelAgendaFundo.setAutoscrolls(true);
         getContentPane().add(LabelAgendaFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1300, 1000));
 
